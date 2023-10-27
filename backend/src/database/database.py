@@ -35,6 +35,15 @@ class PoolConnection:
             except ValueError as e:
                 print(f'Configuration error: {e}')
 
+class Connection:
+    @classmethod
+    def get_connection(cls):
+        try:
+            connection_pool = PoolConnection.get_pool()
+            connection = connection_pool.get_connection()
+            return connection
+        except Exception as e:
+            print(f'Error: {e}')
 
 
 
