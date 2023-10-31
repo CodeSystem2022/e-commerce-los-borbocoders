@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* Fondo blanco */
+    color: #333; /* Texto color negro */
+}
+
+.navbar {
+    background-color: #FFA500; /* Fondo naranja para el header */
+    color: #fff; /* Texto color blanco */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.navbar-logo img {
+    max-height: 150px; /* Tamaño máximo del logo, ajusta según sea necesario */
+    max-width: 150%; /* Para asegurar que el logo no se desborde del contenedor */
+}
+
+.navbar-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links ul li a {
+    color: #fff; /* Enlaces de color blanco */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-links ul li a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
