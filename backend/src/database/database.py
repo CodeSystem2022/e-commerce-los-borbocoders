@@ -34,6 +34,9 @@ class PoolConnection:
                 print(f'Error while creating the Pool: {e}')
             except ValueError as e:
                 print(f'Configuration error: {e}')
+        else
+            return cls.get_pool
+         
 
 class Connection:
     @classmethod
