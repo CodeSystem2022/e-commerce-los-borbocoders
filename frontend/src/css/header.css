@@ -1,0 +1,83 @@
+body{
+    font-family: sans-serif;
+    margin: 4vw;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+
+}
+
+header{
+    display: flex;
+    min-height: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+    position: fixed;
+    top:0;
+    background: none;
+    padding-left: 1,5%;
+    padding-right: 0%;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    height: 160px; 
+    margin-right: 10px;
+}
+
+
+nav a{
+font-family: 'Poppins', sans-serif;
+font-family: 'sora', sans-serif;
+font-weight: 600;
+padding-right: 5px;
+padding-left: 5px;
+padding-bottom: 7px;
+padding-top: 7px;
+background-color: rgba(252, 101, 0, 0.65);
+border-radius: 13px;
+box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+border: 2px outset black;
+margin-bottom: 10px;
+display: inline-block;
+
+}
+
+nav a:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 97, 124);
+    transition: background-color 0.9s ease
+}
+
+@media (max-width: 900px) {
+    header {
+        flex-direction: column; /* Cambia la dirección de los elementos a columna */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    .logo img {
+        height: 50px; /* Reduce el logo para tamaños de pantalla más pequeños */
+    }
+
+    nav {
+        margin-top: 10px; /* Agrega espacio entre el logo y el menú */
+    }
+
+    nav a {
+        margin-bottom: 5px; /* Agrega espacio entre los elementos del menú */
+        padding-left: 5px;
+        padding-right: 5px ;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: 12px;
+        font-weight: 600;
+        display: inline-block;
+    }
+}
