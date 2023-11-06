@@ -1,3 +1,4 @@
+
 const shopContent = document.getElementById("shopContent");
 const cart = JSON.parse(localStorage.getItem("carrito")) || [];
 
