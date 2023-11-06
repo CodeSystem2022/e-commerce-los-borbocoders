@@ -1,6 +1,6 @@
 import json
 from database.database import Connection
-from services.decimal_encoder import DecimalEncoder
+from utils.decimal_ecoder import DecimalEncoder
 
 PRODUCTS_ENDPOINT = '/products'
 
