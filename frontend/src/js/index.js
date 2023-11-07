@@ -1,3 +1,5 @@
+//Revisar index.js, no funciona el contador de cantidad del boton del carrito. Cualquier cosa tengo otra version de index.js que funca con los archivos que commite
+
 const shopContent = document.getElementById("shopContent");
 const cart = JSON.parse(localStorage.getItem("carrito")) || [];
 
