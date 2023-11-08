@@ -4,67 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TecnoFer</title>
-    <link rel="icon" href="/frontend/images/favicon.png" type="image/x-icon">
+    <title>Ecommerce</title>
 
-    <!--Contacta al css-->
-    <link rel="stylesheet" href="style.css">
- 
-    <!--Fonte awesome(iconos)-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- SDK MercadoPago.js -->
-<script src="https://sdk.mercadopago.com/js/v2"></script>
+    <!--Styles-->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/products.css">
+    <link rel="stylesheet" href="./css/cart.css">
 </head>
 <body>
     <!--Comienza el header-->
     <header class="header">
         <div class="menu container">
-            <a href="./index.html" class="logo">TecnoFer</a>
-            <input type="checkbox" id="menu" />
+            <a href="#" class="logo">TecnoFer</a>
+            
             <label for="menu">
-                <img src="../images/menu.png" alt="menu" class="menu-icono">
+                <img src="../images/menu_.png" alt="menu" class="menu-icono">
             </label>
             <!--Nsvegación-->
             <nav class="navbar">
                 <ul>
-                    <li><a href="./index.html">Inicio</a></li>
-                    <li><a href="#productos">Productos</a></li>
-                    <li><a href="#promo">Promociones</a></li>
-                    <li><a href="./contacto.html">Contacto</a></li>
-                    
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="./templates/products.html">Productos</a></li>
+                    <li><a href="./templates/contacto.html">Contacto</a></li>
                 </ul>
             </nav>
 
             <!--Carrito de compras-->
-           <div class="cart-btn" id="cart-btn">
+            <div>
                 <ul>
                     <li class="submenu">
-                        <img src="../images/car.svg" alt="carrito" id="img-carrito">
-                        
+                        <img src="../images/cart.svg" alt="cart" id="img-cart">
+                        <div id="cart">
+                            <table id="cart-list">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <a href="" id="empty-cart" class="btn-2">Vaciar Carrito</a>
+                            <a href="" id="checkoutLink" class="btn-checkout">Comprar</a>
+                        </div>
                     </li>
                 </ul>
-            </div> 
-            <!--contador-->
-            <span class="cart-counter" id="cart-counter">0</span>
-            <!--Modal-->
-            <div class="modal-overlay" id="modal-overlay"></div>
-
-            <div class="modal-container" id="modal-container"></div>
-            <!--Fin Carrito de compras-->
-
+            </div> <!--Fin Carrito de compras-->
         </div>
 
-        <!--div contenido -->
-        <div class="header-contant container">
-            <div class="header-img">          
-                <img src="../images/tecnofer.png" alt="">
+            <!--div contenido -->
+            <div class="header-contant container">
+                <div class="header-img">
+                    <img src="../images/menu_.png" alt="">
+                </div>
+                <div class="header-txt">
+                    <h1>Ofertas Especiales</h1>
+                    <p>Todos los martes y jueves un 20% de descuento pagando en efectivo</p>
+                    <a href="#" class="btn-1">Información</a>
+                </div>
             </div>
-            <div class="header-txt">
-                <h1>Ofertas Especiales</h1>
-                <p>Todos los martes y jueves un 20% de descuento pagando en efectivo</p>
-                <!-- <a href="#" class="btn-1">PROMOCIONES</a> -->
-            </div>
-        </div>
     </header><!--Fin del header-->
 
     <!--Seccion Ofertas-->
@@ -72,58 +72,81 @@
         <!--Oferta 1-->
         <div class="ofert-1">
             <div class="ofert-img">
-                <img src="../images/f1_.png" alt="">
+                <img src="images/img-6.png" alt="">
             </div>
             <div class="ofert-txt">
                 <h3>Producto 1</h3>
-                <a href="#promo" class="btn-2">Informacion</a>
+                <a href="#" class="btn-2">Informacion</a>
             </div>
         </div>
         <!--Oferta 2-->
         <div class="ofert-1">
             <div class="ofert-img">
-                <img src="../images/f2_.png" alt="">
+                <img src="images/img-7.png" alt="">
             </div>
             <div class="ofert-txt">
                 <h3>Producto 2</h3>
-                <a href="#promo" class="btn-2">Informacion</a>
+                <a href="#" class="btn-2">Informacion</a>
             </div>
         </div>
         <!--Oferta 3-->
         <div class="ofert-1">
             <div class="ofert-img">
-                <img src="../images/f3_.png" alt="">
+                <img src="images/img-8.png" alt="">
             </div>
             <div class="ofert-txt">
                 <h3>Producto 3</h3>
-                <a href="#promo" class="btn-2">Informacion</a>
+                <a href="#" class="btn-2">Informacion</a>
+            </div>
+        </div>
+    </section><!--Fin Seccion Ofertas-->
+
+    <!--Productos-->
+    <main class="products container" id="products">
+        <h2 id="productos">Productos</h2>
+        <div class="product-content">
+            <div id="product"></div>
+    </main> <!--Fin productos-->
+
+    <section class="icons container">
+        <div class="icon-1">
+            <div class="icon-txt">
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, nisi!
+                </p>
+            </div>
+        </div>
+
+        <div class="icon-1">
+            <div class="icon-txt">
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, nisi!
+                </p>
+            </div>
+        </div>
+
+        <div class="icon-1">
+            <div class="icon-txt">
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, nisi!
+                </p>
             </div>
         </div>
         
-    </section><!--Fin Seccion Ofertas-->
- 
-    
-     <!--Inicio Productos-->
-     <div class="products conteiner">
-            <h2 id="productos">Productos</h2>
-            
-            <div class="card-products-container ">
-                <div class="card-products" id="shopContent"></div>
-            </div>
-    </div>
-     <!--Fin Productos-->       
+    </section>
 
-
-    <!--Inicio Footer-->    
+  <!--Inicio Footer-->    
     <footer class="footer" id="contactos">
         <div class="footer-content container">
             <div class="link">
                 <h3>Tienda</h3>
                 <ul>
-                    <li><a href="./index.html">Inicio</a></li>
-                    <li><a href="./index.html">Productos</a></li>
-                    <li><a href="#promo">Promociones</a></li>
-                    <li><a href="./contacto.html">Contacto</a></li>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="./templates/products.html">Productos</a></li>
+                    <li><a href="./templates/contacto.html">Contacto</a></li>
                 </ul>
             </div>
 
@@ -165,13 +188,14 @@
     </footer>
     <!--Fin footer-->
 
-    <!--Contacta a javascript-->
-    <script src="products.js"></script>
-    <script src="index.js"></script>
-    <script src="cart.js"></script>
-    <script src="promo.js"></script>
-    <script src="prod_promo.js"></script>
-
+    <!-- JS scripts -->
+    <script type="module" async>
+        import { onInit } from './js/main.js';
+        onInit()
+        .catch( error => {
+            console.error('Error:', error);
+        });
+    </script>
    
 </body>
 </html>
