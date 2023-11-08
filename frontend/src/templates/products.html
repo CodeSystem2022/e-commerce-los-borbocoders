@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/frontend/src/css/main.css">
+    <link rel="stylesheet" href="/frontend/src/css/cart.css">
+    <link rel="stylesheet" href="/frontend/src/css/products.css">
+    <link rel="icon" href="/frontend/images/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+    <header class="header-products">
+        <div class="menu container">
+            <a href="/" class="logo">TecnoFer</a>
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="../images/menu.png" alt="menu" class="menu-icono">
+            </label>
+            
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/templates/products.html">Productos</a></li>
+                    <li><a href="#contactos">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <ul>
+                    <li class="submenu">
+                        <img src="../images/cart.svg" alt="cart" id="img-cart">
+                        <div id="cart">
+                            <table id="cart-list">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <a href="" id="empty-cart" class="btn-2">Vaciar Carrito</a>
+                            <a href="" id="checkoutLink" class="btn-checkout">Comprar</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    
+    <div class="products container" id="products">
+        <h2 id="productos">Productos</h2>
+        <div class="product-content">
+            <div id="product"></div>
+        </div> 
+    <script type="module" async>
+        import {onInitProducts} from "../js/products.js"
+        import { onInitCart } from "../js/cart.js";
+
+        onInitProducts()
+        onInitCart('products')
+    </script>
+</body>
+</html>
+
