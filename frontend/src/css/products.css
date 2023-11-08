@@ -1,0 +1,52 @@
+#product {
+    display: contents;
+}
+
+.products{
+    padding: 50px 0;
+    text-align: center;
+}
+
+.products h2{
+    color: #111111;
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.product-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+.product{
+    text-align: center;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+}
+
+.product img{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.product h3{
+    font-size: 20px;
+    color: #111111;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 15px;   
+}
+
+.product p, .precio{
+    font-size: 16px;
+    color: #111111;
+    margin-bottom: 15px;
+}
+
+.precio{
+    font-weight: 800;
+}
