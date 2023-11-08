@@ -3,6 +3,65 @@ import { saveOrder } from "./data.js";
 
 const checkoutProducts = document.getElementById("checkout-products");
 const totalPrice = document.getElementById("total-price");
+document.addEventListener('DOMContentLoaded', function () {
+    const formulario = document.getElementById('checkout-form');
+    formulario.addEventListener('submit', function (event) {
+        // Verifica cada campo del formulario y muestra un mensaje de error detallado si es necesario
+        if (!validarNombre()) {
+            alert('Por favor, ingresa un nombre válido (solo letras).');
+            event.preventDefault();
+        } else if (!validarApellido()) {
+            alert('Por favor, ingresa un apellido válido (solo letras).');
+            event.preventDefault();
+        } else if (!validarEmail()) {
+            alert('Por favor, ingresa un correo electrónico válido.');
+            event.preventDefault();
+        } else if (!validarDireccion()) {
+            alert('Por favor, ingresa una dirección válida (letras y números).');
+            event.preventDefault();
+        } else if (!validarTelefono()) {
+            alert('Por favor, ingresa un número de teléfono válido (solo números).');
+            event.preventDefault();
+        } else {
+            // Si todos los campos son válidos, realiza el envío del formulario según el método de pago seleccionado
+            if (document.getElementById("mercadoPago").checked) {
+                onsubmit(event);
+            } else {
+                onCashsubmit(event);
+            }
+        }
+    });
+
+    function validarNombre() {
+        const nombre = document.getElementById("first-name").value;
+        // Si el nombre está vacío o no contiene solo letras, retorna falso
+        return /^[A-Za-z]+$/.test(nombre);
+    }
+
+    function validarApellido() {
+        const apellido = document.getElementById("last-name").value;
+        // Si el apellido está vacío o no contiene solo letras, retorna falso
+        return /^[A-Za-z]+$/.test(apellido);
+    }
+
+    function validarEmail() {
+        const email = document.getElementById("email").value;
+        // Utiliza una expresión regular para validar el formato del correo electrónico
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function validarDireccion() {
+        const direccion = document.getElementById('address').value;
+        // Si la dirección está vacía o contiene caracteres no permitidos, retorna falso
+        return /^[A-Za-z0-9\s]+$/.test(direccion);
+    }
+
+    function validarTelefono() {
+        const telefono = document.getElementById("phone").value;
+        // Si el teléfono está vacío o no contiene solo números, retorna falso
+        return /^[0-9]+$/.test(telefono);
+    }
+});
 
 function onInitCheckout() {
 
