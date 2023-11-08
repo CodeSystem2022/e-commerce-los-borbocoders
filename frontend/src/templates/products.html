@@ -1,61 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontend/src/css/main.css">
+    <link rel="stylesheet" href="/frontend/src/css/cart.css">
     <link rel="stylesheet" href="/frontend/src/css/products.css">
-    <title>TecnoFer - Productos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="/frontend/images/favicon.png" type="image/x-icon">
 </head>
-
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="/frontend/images/banner2.png" alt="Logo TecnoFer">
-        </div>
-        
-        <nav class="navbar">
-            <div class="social-icons">
-                <a href="#" target="_blank"><i class="fas fa-global"> Productos de nuestro  E-Commerce</i></a> 
-                <a href="#" target="_blank"><i class="fab fa-instagram"> Tecnofer</i></a>
-                <a href="#" target="_blank"><i class="fab fa-facebook"> Tecnofer</i></a>
-                <a href="#" target="_blank"><i class="fas fa-phone"> 351203943</i></a>
+
+    <header class="header-products">
+        <div class="menu container">
+            <a href="/" class="logo">TecnoFer</a>
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="../images/menu.png" alt="menu" class="menu-icono">
+            </label>
+            
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/templates/products.html">Productos</a></li>
+                    <li><a href="#contactos">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <ul>
+                    <li class="submenu">
+                        <img src="../images/cart.svg" alt="cart" id="img-cart">
+                        <div id="cart">
+                            <table id="cart-list">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <a href="" id="empty-cart" class="btn-2">Vaciar Carrito</a>
+                            <a href="" id="checkoutLink" class="btn-checkout">Comprar</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+
     </header>
+    
+    <div class="products container" id="products">
+        <h2 id="productos">Productos</h2>
+        <div class="product-content">
+            <div id="product"></div>
+        </div> 
+    <script type="module" async>
+        import {onInitProducts} from "../js/products.js"
+        import { onInitCart } from "../js/cart.js";
 
-<!-- shop Content -->
-        <div class="cards-products-container">
-            <div class="card-products" id="shopContent"></div>
-        </div>
-<!-- cart-btn -->
-        <div class="cart-btn" id="cart-btn">🛒</div>
-<!-- cart counter -->
-        <span class="cart-counter" id="cart-counter">0</span>
-
-        <div class="modal-overlay" id="modal-overlay"></div>
-        <div class="modal-container" id="modal-container"></div>
-
-
-
-        <script src="/frontend/src/js/products.js"></script>
-        <script src="/frontend/src/js/index.js"></script>
-        <script src="/frontend/src/js/cart.js"></script>
-        
-
-
-    <footer>
-        <footer class="footer">
-            <div class="footer-logo">
-                <img src="/frontend/images/footertecnofer.png" alt="Logo de la empresa"></div>
-            <div class="social-icons">
-                <a href="#" target="_blank"><i></i>Bv. San Juan 793, Cordoba. Argentina</a>
-            </div>
-        </footer>
-        
-    </footer>
+        onInitProducts()
+        onInitCart('products')
+    </script>
 </body>
-
 </html>
+
