@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+
+:root{
+    --primary: #f5f5f5;
+    --logo: #111111;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+img{
+    max-width: 100%;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+    
+
+.header{
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+    background-color: var(--primary) ;
+    padding: 70px 0;
+}
+
+.menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    font-size: 25px;
+    color: var(--logo);
+    text-transform: uppercase;
+    font-weight: 800;
+}
+/* menu */
+.menu .navbar ul li{
+    position: relative;
+    float: left;
+}
+
+.menu .navbar ul li a{
+    font-size: 18px;
+    padding: 20px;
+    color: var(--logo);
+    display: block;
+}
+
+#menu{
+    display: none;
+}
+
+.menu-icono{
+    width: 25px;
+}
+
+.menu label{
+    cursor: pointer;
+    display: none;
+}
+
+.submenu{
+    position: relative;
+}
+
+table{
+    width: 100%;
+}
+
+th, td{
+    color: #ffffff;
+}
+
+
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    padding: 0 200px;
+}
+
+.header-img, .header-txt{
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.header-txt h1{
+    font-size: 90px;
+    text-transform: uppercase;
+    line-height: 1;
+    color: #111111;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 15px;
+}
+
+.header-txt p{
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.btn-1{
+    display: inline-block;
+    padding: 11px 25px;
+    background-color: #111;
+    color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.ofert{
+    padding: 20px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ofert-1{
+    display: flex;
+    align-items: center;
+    flex-basis: calc(33.3% - 15px);
+    background-color: #f5f5f5;
+    padding: 5px;
+}
+
+.ofert-img{
+    flex-basis: 50%;
+    margin-right: 15px;
+}
+
+.ofert-img img{
+    width: 250px;
+}
+
+.ofert-txt{
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.ofert-txt h3{
+    color: #111111;
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.btn-2{
+    display: inline-block;
+    padding: 7px 10px;
+    background-color: #111111;
+    color: #f5f5f5;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+
+
+/*--------------------------*/
+/*-------- banners----------*/
+.icons{
+    padding: 50px 0 100px 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.icon-1{
+    flex-basis: calc(33.3% - 30px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+    background-color: #f5f5f5;
+}
+
+.icon-txt h3{
+    font-size: 20px;
+    color: #111111;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+.icon-txt p{
+    font-size: 16px;
+    color: #111111;
+}
+
+/* FOOTER */
+.footer{
+    padding: 50px 0;
+    background-color: #111111;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.link h3{
+    font-size: 18px;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.link a{
+    font-size: 16px;
+    color: #dcdcdc;
+    display: block;
+    margin-bottom: 10px;
+}
+
+@media (max-width:991px){
+    .menu{
+        padding: 20px;
+    }
+
+    .menu label{
+        display: initial;
+    }
+
+    .menu .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #181818;
+        display: none;
+    }
+
+    .menu .navbar ul li{
+        width: 100%;
+    }
+
+    .menu .navbar ul li a{
+        color: #ffffff;
+    }
+
+    #menu:checked ~ .navbar{
+        display: initial;
+    }
+    .logo{
+        display: none;
+    }
+
+    .submenu:hover #carrito{
+        min-width: 100%;
+    }
+
+    .header{
+        min-height: 0vh;
+    }
+
+    .header-content{
+        padding: 50px 0;
+        flex-direction: column;
+    }
+
+    .header-img{
+        display: none;
+    }
+
+    .header-txt{
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .header-txt h1{
+        font-size: 70px;
+    }
+
+    .ofert{
+        padding: 30px 30px 0 30px;
+        flex-direction: column;
+    }
+
+    .ofert-1{
+        margin-bottom: 30px;
+    }
+   
+    /* FOOTER */
+    .footer{
+        padding: 30px;
+    }
+
+    .footer-content{
+        flex-direction: column;
+        text-align: center;
+    }
+    
+}
