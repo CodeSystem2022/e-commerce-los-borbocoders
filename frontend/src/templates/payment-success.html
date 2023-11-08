@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Exitoso</title>
+    <link rel="stylesheet" href="../css/success-payment.css">
+</head>
+<body>
+    <div class="success-container">
+        <h1>Pago Exitoso</h1>
+        <p>¡Muchas Gracias por tu pago, la compra se ha completado con éxito!.</p>
+        <a href="/" class="button">Continuar</a>
+    </div>
+<script type="module" async>
+    import { onInitSuccessPayment } from "../js/services/successPayment.js"
+    onInitSuccessPayment()
+  </script>
+</body>
+</html>
