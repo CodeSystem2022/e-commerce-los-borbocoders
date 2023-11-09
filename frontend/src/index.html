@@ -12,6 +12,8 @@ servidor web que aloja la página-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <!--Etiqueta que permite visualizar el sitio web a travé de diferentes dispositivos, estableciendo el ancho y el nivel de zoom inicial-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <!--Agregamos el título de la página-->
     <title>Ecommerce</title>
 
     <!--Styles--><!--Styles-->
@@ -34,13 +36,14 @@ servidor web que aloja la página-->
                 <img src="images/menu.png" alt="menu" class="menu-icono">
             </label>
 
-            <!--Menu de Navegación. Etiqueta para generar la barra de navegación-->
+            <!--Menu de Navegación. Etiqueta para generar la barra de navegación permitiéndones trasladarnos a otras paginas-->
             <nav class="navbar">
                 <ul> <!--Etiqueta que permitir añadir un conjunto de listas no organizadas o numéricas-->
                     <li><a href="#">Inicio</a></li>
                     <li><a href="templates/products.html">Productos</a></li>
+                    <li><a href="templates/about.html">About</a></li>
                     <li><a href="#">Contacto</a></li>
-                </ul>
+                   </ul>
             </nav>
 
             <!--Carrito de compras-->
@@ -70,6 +73,8 @@ servidor web que aloja la página-->
 
             <!--div contenido. Esta etiqueta la utilizaremos para armar cajas en nuestro sitio web.
             se pueden clasificar con class e identificar con id -->
+
+            <!--A través de las cajas organizamos los diferente contenido de la página principal-->
             <div class="header-contant container">
                 <div class="header-img">
                     <img src="images/menu_.png" alt="">
@@ -85,9 +90,10 @@ servidor web que aloja la página-->
     <!--Seccion Ofertas-->
     <section class="ofert container">
         <!--Oferta 1-->
+        <!--Enlaces que nos permite acceder a páginas con secciones según categorías-->
         <div class="ofert-1">
             <div class="ofert-img">
-                <img src="images/img-6.png" alt="">
+                <img src="/images/img-6.png" alt="">
             </div>
             <div class="ofert-txt">
                 <h3>Producto 1</h3>
@@ -203,7 +209,7 @@ servidor web que aloja la página-->
     </footer>
     <!--Fin footer-->
 
-    <!-- JS scripts -->
+    <!-- JS scripts - Script necesarios-->
     <script type="module" async>
         import { onInit } from './js/main.js';
         onInit()
