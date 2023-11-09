@@ -1,31 +1,45 @@
+<!--Es una etiqueta que no necesitacierre ya que es una etiqueta simple cuya función es facilitar información al
+servidor web que aloja la página-->
 <!DOCTYPE html>
+
+<!--Etiqueta que se va a encargar de encerrar todo el documento html y en este caso además define el idiona que se utilizará.-->
 <html lang="es">
+
+<!--Etiqueta que define la cabecera del documento y contiene información de este que no es visible para el usuario-->>
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> <!--Etiqueta cuya función es añadir información sobre la página-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!--Etiqueta que permite visualizar el sitio web a travé de diferentes dispositivos, estableciendo el ancho y el nivel de zoom inicial-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Ecommerce</title>
 
-    <!--Styles-->
+    <!--Styles--><!--Styles-->
+    <!--Enlaces que permiten vincular la hoja de Style a la hoja HTML-->
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/products.css">
     <link rel="stylesheet" href="./css/cart.css">
 </head>
+
+<!--Es el cuerpo del sitio web y la información contenida dentro es visible para el usuario-->
 <body>
-    <!--Comienza el header-->
+    <!--Comienza el header. Esta etiqueta va a contener el encabezado de una sección o documento-->
     <header class="header">
         <div class="menu container">
             <a href="#" class="logo">TecnoFer</a>
             
             <label for="menu">
+                <!--Etiqueta que permite agregar imágenes a nuestra página web, acompañado del atributo SRC. Este atributo
+                   especifica la ubicación o dirección url de la imagen-->
                 <img src="images/menu.png" alt="menu" class="menu-icono">
             </label>
-            <!--Nsvegación-->
+
+            <!--Menu de Navegación. Etiqueta para generar la barra de navegación-->
             <nav class="navbar">
-                <ul>
+                <ul> <!--Etiqueta que permitir añadir un conjunto de listas no organizadas o numéricas-->
                     <li><a href="#">Inicio</a></li>
-                    <li><a href="/templates/products.html">Productos</a></li>
-                    <li><a href="#contactos">Contacto</a></li>
+                    <li><a href="templates/products.html">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
             </nav>
 
@@ -35,7 +49,7 @@
                     <li class="submenu">
                         <img src="images/cart.svg" alt="cart" id="img-cart">
                         <div id="cart">
-                            <table id="cart-list">
+                            <table id="cart-list"> <!--Etiqueta que permite crear tablas-->
                                 <thead>
                                     <tr>
                                         <th>Imagen</th>
@@ -54,7 +68,8 @@
             </div> <!--Fin Carrito de compras-->
         </div>
 
-            <!--div contenido -->
+            <!--div contenido. Esta etiqueta la utilizaremos para armar cajas en nuestro sitio web.
+            se pueden clasificar con class e identificar con id -->
             <div class="header-contant container">
                 <div class="header-img">
                     <img src="images/menu_.png" alt="">
@@ -111,34 +126,34 @@
     <section class="icons container">
         <div class="icon-1">
             <div class="icon-txt">
-                <h3>Lorem, ipsum dolor.</h3>
+                <h3>HOGAR</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, nisi!
+                    Venta de productos para la constucción, remodelación, decoración, diseño y equipamiento para el hogar.
                 </p>
             </div>
         </div>
 
         <div class="icon-1">
             <div class="icon-txt">
-                <h3>Lorem, ipsum dolor.</h3>
+                <h3>OBRAS Y PROFESIONALES DE LA CONSTURCCIÓN</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, nisi!
+                    Somos representantes de las mejores marcas del mercado, hacemos envíos a todo el país.
                 </p>
             </div>
         </div>
 
         <div class="icon-1">
             <div class="icon-txt">
-                <h3>Lorem, ipsum dolor.</h3>
+                <h3>RUBRO METALÚRGICO Y MECÁNICO</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, nisi!
+                    Ofrecemos una amplia variedad de herramientas manuales y eléctricas  e insumos para la industria metalúrgica y metal mecánica.
                 </p>
             </div>
         </div>
         
     </section>
 
-  <!--Inicio Footer-->    
+  <!--Inicio Footer. Es una etiqueta compuesta, que se la conoce como pie de página -->    
     <footer class="footer" id="contactos">
         <div class="footer-content container">
             <div class="link">
