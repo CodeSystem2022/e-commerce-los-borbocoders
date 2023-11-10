@@ -49,3 +49,4 @@ export async function onInitProducts() {
     productList.appendChild(productDiv);
   });
 }
+
