@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/frontend/src/css/cart.css">
     <link rel="stylesheet" href="/frontend/src/css/products.css">
     <link rel="icon" href="/frontend/images/favicon.png" type="image/x-icon">
+    
 </head>
 <body>
 
@@ -19,7 +20,7 @@
             <nav class="navbar">
                 <ul>
                     <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="/templates/products.html">Productos</a></li>
+                    <li><a href="#">Productos</a></li>
                     <li><a href="../templates/contacto.html">Contacto</a></li>
                 </ul>
             </nav>
@@ -27,7 +28,7 @@
             <div>
                 <ul>
                     <li class="submenu">
-                        <img src="../images/cart.svg" alt="cart" id="img-cart">
+                        <img src="../../images/cart.svg" alt="cart" id="img-cart">
                         <div id="cart">
                             <table id="cart-list">
                                 <thead>
@@ -47,7 +48,6 @@
                 </ul>
             </div>
         </div>
-
     </header>
     
     <div class="products container" id="products">
@@ -55,13 +55,19 @@
         <div class="product-content">
             <div id="product"></div>
         </div> 
+    </div>    
+
+
+
     <script type="module" async>
         import {onInitProducts} from "../js/products.js"
         import { onInitCart } from "../js/cart.js";
 
         onInitProducts();
         onInitCart('products');
+
     </script>
+    
 </body>
 </html>
 
