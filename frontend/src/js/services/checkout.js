@@ -1,16 +1,31 @@
-import { createPreferenceId } from "./mercadoPago.js";
+import { getCartFromLocalStorage, getTotalFromLocalStorage } from "../cart.js";
+import { validateCart, validateForm } from "./validations.js";
 import { saveOrder } from "./data.js";
+import { createPreferenceId } from "./mercadoPago.js";
+
 
 const checkoutProducts = document.getElementById("checkout-products");
 const totalPrice = document.getElementById("total-price");
+const cart = getCartFromLocalStorage();
+const total = getTotalFromLocalStorage();
 
 function onInitCheckout() {
 
-    checkoutProducts.innerHTML = '';
-    const cartData = localStorage.getItem('cart');
-    const cartArray = JSON.parse(cartData);
+    if(!validateCart(cart)) {
+        return;
+    }
 
-    cartArray.forEach((product) => {
+    displayCartSummary();
+
+    setupButtons();
+}
+
+function displayCartSummary() {
+
+    checkoutProducts.innerHTML = '';
+    totalPrice.innerText = `Total $ ${total}`;
+
+    cart.forEach((product) => {
         const productDiv = document.createElement('div');
         const productImg = document.createElement('img');
         const productName = document.createElement('h3');
@@ -32,112 +47,109 @@ function onInitCheckout() {
         checkoutProducts.appendChild(productDiv); 
 
     });
-    
-    const total = cartArray.reduce((total, product) => total + product.price * product.quantity, 0);
+}
 
-    totalPrice.innerText = `Total $ ${total}`;
-
+function setupButtons() {
     
-    // actions
-    const cashContainer = document.getElementById('cash-container');
-    const walletContainer = document.getElementById('wc');
     const mercadoPagoRadio = document.getElementById("mercadoPago");
     const cashRadio = document.getElementById("cash");
+
+    mercadoPagoRadio.addEventListener("click", handlePayment);
+    cashRadio.addEventListener("click", handlePayment);
+    
+    createCashPaymentSubmitButton();
+}
+
+function createCashPaymentSubmitButton() {
+
+    document.getElementById('wallet_container').innerHTML = ''; 
+    const cashContainer = document.getElementById('cash_container');
     const buttonSubmit = document.createElement('button');
-    //buttonSubmit.textContent='Continuar';
-
+    buttonSubmit.id = 'cashSubmit';
     buttonSubmit.innerHTML = 'Continuar';
-    buttonSubmit.addEventListener('click', onCashsubmit);    
+    buttonSubmit.addEventListener('click', handleCashPayment);    
     cashContainer.appendChild(buttonSubmit);
-    
-    // Add event listeners to the radio buttons
-    mercadoPagoRadio.addEventListener("click", function (event) {
-    if (mercadoPagoRadio.checked) {
-        cashContainer.innerHTML = '';
-        onsubmit(event);
-    }
-    });
-
-    cashRadio.addEventListener("click", function (event) {
-    if (cashRadio.checked) {
-        walletContainer.innerText = '';
-        buttonSubmit.innerHTML = 'Continuar';
-        buttonSubmit.addEventListener('click', onCashsubmit);    
-        cashContainer.appendChild(buttonSubmit);
-        }
-    });
-
-    
-
 }
 
-function onsubmit(event) {
-    const cartData = localStorage.getItem('cart');
-    const cart = JSON.parse(cartData);
-    const total = cart.reduce((total, product) => total + product.price * product.quantity, 0);
-    const firstName = document.getElementById("first-name").value;
-    const lastName = document.getElementById("last-name").value;
-    const email = document.getElementById("email").value;
-    const address = document.getElementById("address").value;
-    const phone = document.getElementById("phone").value;
-    const payment = 'm';
+function handlePayment(event) {
+
+    const selectedPaymentMethod = document.querySelector('input[name=paymentMethod]:checked').value;
+
+    if (selectedPaymentMethod === 'cash') {
+        createCashPaymentSubmitButton();
+
+    } else if (selectedPaymentMethod === 'mercadopago') {
+        document.getElementById('wallet_container').innerHTML = ''; 
+        const cashContainer = document.getElementById('cash_container');
+        const buttonSubmit = document.getElementById('cashSubmit');
+        cashContainer.removeChild(buttonSubmit);
+        handleMercadopagoPayment(event);
+    }
+}
+
+async function handleMercadopagoPayment(event) {
+
+    if(!validateForm(event)) {
+        return;
+    }
 
     const order = {
         order: {
-            customer: {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                address: address,
-                phone: phone,
-            },
-            cart,
-            total,
-            payment,
-        }
-    }
-    
-    createPreferenceId(order);
-    
+          ...createOrder(),
+          payment: "m",
+        },
+    };
+
+    await createPreferenceId(order);    
+
 }
 
-async function onCashsubmit(event) {
-    const cartData = localStorage.getItem('cart');
-    const cart = JSON.parse(cartData);
-    const total = cart.reduce((total, product) => total + product.price * product.quantity, 0);
-    const firstName = document.getElementById("first-name").value;
-    const lastName = document.getElementById("last-name").value;
-    const email = document.getElementById("email").value;
-    const address = document.getElementById("address").value;
-    const phone = document.getElementById("phone").value;
-    const payment = 'c';
-    
+async function handleCashPayment(event) {
+
+    if(!validateForm(event)) {
+        return;
+    }
+
     const order = {
         order: {
-            customer: {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                address: address,
-                phone: phone,
-            },
-            cart,
-            total,
-            payment
-        }
-    }
-    
+          ...createOrder(),
+          payment: "c",
+        },
+    };
+
+
     try {
-        const response = await saveOrder(order);
+        const response = await saveOrder(order); 
         if(response) {
             const orderId = response.order_id;
             localStorage.setItem('orderId', orderId);
             window.location.href = '../../templates/success-payment-cash.html';
         }
     } catch (error) {
-        console.error('The order could not be saved, try again later');
-    }
-    
+        console.error('Eror: ', error);
+        alert('La orden no pudo ser procesada, por favor, intenta nuevamente')
+    }    
+
+}
+
+function createOrder() {
+    const firstName = document.getElementById("first-name").value;
+    const lastName = document.getElementById("last-name").value;
+    const email = document.getElementById("email").value;
+    const address = document.getElementById("address").value;
+    const phone = document.getElementById("phone").value;
+  
+    return {
+      customer: {
+        firstName,
+        lastName,
+        email,
+        address,
+        phone,
+      },
+      cart: cart,
+      total: total,
+    };
 }
 
 export { onInitCheckout };
