@@ -3,11 +3,16 @@ from database.database import Connection
 from models.cart import Cart
 from utils.decimal_ecoder import DecimalEncoder
 from utils.set_headers import SetHeaders
+from utils.error_handler import ErrorHandler
+from utils.logger import Logger
 
 PRODUCTS_ENDPOINT = '/products'
 
 
 class ProductService:
+
+    logger = Logger()
+
     def do_GET(self, handler): #Este método maneja solicitudes HTTP GET. Recibe un objeto handler
       #si la ruta de la solicitud coincide con la constante PRODUCTS_ENDPOINT. Si es así, se llama al método _handle_get_products(handler) para obtener la información de los productos y enviarla como respuesta.
         if handler.path == PRODUCTS_ENDPOINT: 
@@ -24,7 +29,8 @@ class ProductService:
             products = {'products': self._get_products_from_db()}
             return products
         except Exception as e: # Si ocurre alguna excepción, se responde con un código de estado 500 (Error interno del servidor) y el mensaje de error.
-            handler.handle_error(500, str(e))
+            ErrorHandler.handle_error(handler, 500, "An error occurred while getting the products: {}".format(str(e)))
+            ProductService.logger.log_error(f"An error occurred in ProductService: {e}")
 
     #Este método se encarga de obtener productos desde una base de datos utilizando Connection y ejecutando una consulta SQL.
     def _get_products_from_db(self):
@@ -38,7 +44,7 @@ class ProductService:
                     converted_products = [dict(zip(keys, product)) for product in products]
                     return converted_products
         except Exception as e:
-            print(f'Error: {e}')
+            ProductService.logger.log_error(f"An error occurred in _get_products_from_db: {e}")
 
     #Este método estático toma un objeto Cart como argumento y se encarga de actualizar el stock de productos en la base de datos en función de la información contenida en el carrito
     @staticmethod
@@ -60,6 +66,6 @@ class ProductService:
             if result > 0:
                 return True
 
-        except Exception as error:
+        except Exception as e:
             connection.rollback()
-            print(f"Failed to update product stock: {error}")
+            ProductService.logger.log_error(f"An error occurred in update_products_stock: {e}")

@@ -14,6 +14,7 @@ from services.user_service import UserService
 from utils.request_parser import RequestParser
 from utils.set_headers import SetHeaders
 from utils.error_handler import ErrorHandler
+from utils.logger import Logger
 
 load_dotenv()
 
@@ -22,6 +23,9 @@ UPDATE_ORDER_STATUS_ENDPOINT = os.getenv('/UPDATE_ORDER_STATUS_ENDPOINT')
 
 
 class OrderService:
+
+    logger = Logger()
+
     def do_POST(self, handler):
         if handler.path == SAVE_ORDER_ENDPOINT:
             response = self._handle_save_order(handler)
@@ -85,6 +89,7 @@ class OrderService:
                 return order_id
 
         except Exception as e:
+            OrderService.logger.log_error(f"Error in _handle_save_order: {e}")
             ErrorHandler.handle_error(handler, 500, "An error occurred: {}".format(str(e)))
 
 
@@ -104,6 +109,7 @@ class OrderService:
                     else:
                         return ProductService.update_products_stock(cart)
         except Exception as e:
+            OrderService.logger.log_error(f"Error in _handle_update_order_status: {e}")
             ErrorHandler.handle_error(handler, 500, "An error occurred: {}".format(str(e)))
 
     @staticmethod
@@ -122,8 +128,8 @@ class OrderService:
                         return "Status updated successfully"
                     else:
                         print("No rows were updated.")
-        except Exception as error:
-            print(f"Failed to update order status: {error}")
+        except Exception as e:
+            OrderService.logger.log_error(f"Error in _update_order_status: {e}")
 
     @staticmethod
     def _save_order(order):
@@ -148,8 +154,8 @@ class OrderService:
                     order_id = cursor.lastrowid
                     return order_id
 
-        except Exception as error:
-            print(f"Failed to insert order into the database: {error}")
+        except Exception as e:
+            OrderService.logger.log_error(f"Error in _save_order: {e}")
 
     @staticmethod
     def _save_cart(order_id, cart: Cart):
@@ -176,9 +182,9 @@ class OrderService:
             cart_id = cursor.lastrowid
             return cart_id
 
-        except Exception as error:
+        except Exception as e:
             connection.rollback()
-            print(f"Failed to insert cart: {error}")
+            OrderService.logger.log_error(f"Error in _save_cart: {e}")
 
     @staticmethod
     def get_cart_by_order_id(order_id):
@@ -205,7 +211,7 @@ class OrderService:
                     else:
                         return None
         except Exception as e:
-            print(f"Error in get_cart_by_customer_id: {str(e)}")
+            OrderService.logger.log_error(f"Error in get_cart_by_order_id: {str(e)}")
             return None
 
     @staticmethod
@@ -222,6 +228,6 @@ class OrderService:
                     connection.commit()
                     return order_id
 
-        except Exception as error:
+        except Exception as e:
             connection.rollback()
-            print(f'Error while saving the order and cart: {error}')
+            OrderService.logger.log_error(f'Error in save_order_and_cart: {e}')
