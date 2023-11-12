@@ -207,6 +207,7 @@ th, td{
     color: #111111;
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
+    padding-bottom: 10px;
 }
 
 .icon-txt p{
