@@ -2,6 +2,7 @@ import os
 from http.server import HTTPServer
 
 from services.request_handler_service import RequestHandlerService
+from utils.error_handler import ErrorHandler
 
 
 class App:
@@ -12,8 +13,11 @@ class App:
         self._httpd = HTTPServer(self._server_address, RequestHandlerService)
 
     def run(self):
-        print(f'Server is running on {self._server_address}')
-        self._httpd.serve_forever()
+        try:
+            self.logger.log_info(f'Server is running on {self._server_address}')
+            self._httpd.serve_forever()
+        except Exception as e:
+            ErrorHandler.handle_error(self._httpd, 500, "An error occurred: {}".format(str(e)))
 
 
 if __name__ == '__main__':

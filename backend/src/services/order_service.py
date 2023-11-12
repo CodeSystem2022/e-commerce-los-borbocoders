@@ -13,6 +13,7 @@ from services.product_service import ProductService
 from services.user_service import UserService
 from utils.request_parser import RequestParser
 from utils.set_headers import SetHeaders
+from utils.error_handler import ErrorHandler
 
 load_dotenv()
 
@@ -84,7 +85,8 @@ class OrderService:
                 return order_id
 
         except Exception as e:
-            handler.handle_error(500, str(e))
+            ErrorHandler.handle_error(handler, 500, "An error occurred: {}".format(str(e)))
+
 
     @staticmethod
     def _handle_update_order_status(handler):
@@ -102,7 +104,7 @@ class OrderService:
                     else:
                         return ProductService.update_products_stock(cart)
         except Exception as e:
-            handler.handle_error(500, str(e))
+            ErrorHandler.handle_error(handler, 500, "An error occurred: {}".format(str(e)))
 
     @staticmethod
     def _update_order_status(order_id):
