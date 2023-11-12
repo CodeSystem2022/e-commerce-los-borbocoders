@@ -78,6 +78,8 @@ function addProduct(event) {
   }
 }
 
+// Creación de tabla para agregar elementos al carrito de compras
+
 function addToCart(product) {
   const row = document.createElement("tr");
   row.innerHTML = `
@@ -122,6 +124,8 @@ function displayCart(products) {
   }
 }
 
+//Funciòn que nos permitirá eliminar productos del carrito
+
 function deleteProduct(event) {
   event.preventDefault();
 
@@ -138,6 +142,8 @@ function deleteProduct(event) {
   displayCart(updatedCart);
 }
 
+
+//Función vaciar carrito
 function emptyCart() {
   localStorage.clear();
 
