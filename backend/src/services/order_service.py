@@ -1,17 +1,23 @@
-import json
 import datetime
+import json
+import os
+
+from dotenv import load_dotenv
+
 from database.database import Connection
 from models.cart import Cart
+from models.customer import Customer
+from models.order import Order
+from models.product import *
 from services.product_service import ProductService
 from services.user_service import UserService
-from models.order import Order
-from models.customer import Customer
-from models.product import *
+from utils.request_parser import RequestParser
 from utils.set_headers import SetHeaders
-from utils.RequestParser import RequestParser
 
-SAVE_ORDER_ENDPOINT = '/save_order'
-UPDATE_ORDER_STATUS_ENDPOINT = '/update_order_status'
+load_dotenv()
+
+SAVE_ORDER_ENDPOINT = os.getenv('SAVE_ORDER_ENDPOINT')
+UPDATE_ORDER_STATUS_ENDPOINT = os.getenv('/UPDATE_ORDER_STATUS_ENDPOINT')
 
 
 class OrderService:

@@ -1,8 +1,8 @@
 import os
-from dotenv import load_dotenv
-import mysql.connector
-from mysql.connector import pooling
 
+import mysql.connector
+from dotenv import load_dotenv
+from mysql.connector import pooling
 
 load_dotenv()
 
@@ -34,7 +34,7 @@ class PoolConnection:
                 print(f'Error while creating the Pool: {e}')
             except ValueError as e:
                 print(f'Configuration error: {e}')
-        else
+        else:
             return cls.get_pool
          
 
@@ -47,6 +47,3 @@ class Connection:
             return connection
         except Exception as e:
             print(f'Error: {e}')
-
-
-
