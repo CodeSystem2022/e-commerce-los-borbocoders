@@ -4,6 +4,7 @@ from http.server import BaseHTTPRequestHandler
 from dotenv import load_dotenv
 
 from services.router import Router
+from utils.error_handler import ErrorHandler
 
 load_dotenv()
 
@@ -20,23 +21,30 @@ class RequestHandlerService(BaseHTTPRequestHandler):
 
     #  do_GET(): Se encarga de procesar las solicitudes HTTP GET derivandolas a la instancia de servicio que corresponda.
     def do_GET(self):
+
         path = self.path
 
         service_instance = self.router.get_service_instance(path)
-        if service_instance:
-            service_instance.do_GET(self)
 
-        else:
-            # handle error
-            pass
+        try:
+            if service_instance:
+                service_instance.do_GET(self)
+            else:
+                ErrorHandler.handle_error(self, 404, f"Resource not found: {path}")
+        except Exception as e:
+            ErrorHandler.handle_error(self, 500, "An error occurred: {}".format(str(e)))
 
     # do_POST(): Se encarga de procesar las solicitudes HTTP POST derivandolas a la instancia de servicio que corresponda.
     def do_POST(self):
+
         path = self.path
 
         service_instance = self.router.get_service_instance(path)
-        if service_instance:
-            service_instance.do_POST(self)
-        else:
-            # handle error
-            pass
+
+        try:
+            if service_instance:
+                service_instance.do_GET(self)
+            else:
+                ErrorHandler.handle_error(self, 404, f"Resource not found: {path}")
+        except Exception as e:
+            ErrorHandler.handle_error(self, 500, "An error occurred: {}".format(str(e)))
