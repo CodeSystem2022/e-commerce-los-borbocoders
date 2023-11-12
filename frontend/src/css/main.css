@@ -1,11 +1,15 @@
+/*Permite utilizar fuentes externas al documento*/
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 
+
+/*Estilos generales para nuestro index*/
 
 :root{
     --primary: #f5f5f5;
     --logo: #111111;
 }
 
+/*Reseteo de estilos*/
 *{
     margin: 0;
     padding: 0;
@@ -16,8 +20,10 @@
 
 body{
     font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(35, 35, 36, 0.34), rgba(243, 244, 248, 0.34)), url('/frontend/images/fondo.jpg') no-repeat;
 }
 
+/*Imágenes Resposivas para que se adapten a cualquier dispositivo donde sea vista la página*/
 img{
     max-width: 100%;
 }
@@ -32,9 +38,10 @@ img{
     display: flex;
     align-items: center;
     min-height: 80vh;
-    background-color: var(--primary) ;
-    padding: 70px 0;
-}
+    /*background-color: var(--primary) ;*/
+    
+    padding: 90px 0;
+}   
 
 .menu{
     position: absolute;
@@ -47,8 +54,9 @@ img{
 }
 
 .logo{
-    font-size: 25px;
-    color: var(--logo);
+    font-size: 50px;
+    /*color: var(--logo);*/
+    color: #ffffff;
     text-transform: uppercase;
     font-weight: 800;
 }
@@ -59,9 +67,10 @@ img{
 }
 
 .menu .navbar ul li a{
-    font-size: 18px;
-    padding: 20px;
-    color: var(--logo);
+    font-size: 23px;
+    padding: 30px;
+    /*color: var(--logo);*/
+    color: #ffffff;
     display: block;
 }
 
@@ -104,11 +113,12 @@ th, td{
     text-align: center;
 }
 
+
 .header-txt h1{
     font-size: 90px;
     text-transform: uppercase;
     line-height: 1;
-    color: #111111;
+    color: #f0e8e8;
     font-family: 'Oswald', sans-serif;
     margin-bottom: 15px;
 }
@@ -229,7 +239,9 @@ th, td{
     display: block;
     margin-bottom: 10px;
 }
-
+.link ul li i{
+    color: #f5f5f5;
+}
 @media (max-width:991px){
     .menu{
         padding: 20px;

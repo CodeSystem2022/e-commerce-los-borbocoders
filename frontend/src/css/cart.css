@@ -1,3 +1,10 @@
+/*Solamente aparecerá cuando pasemos el mouse sobre el icono*/
+.submenu img{
+    color: #f5f5f5;
+    background-color: white;
+    padding: 7px 8px 7px 5px;
+    border-radius: 50%;
+}
 .submenu #cart{
     display: none;
     

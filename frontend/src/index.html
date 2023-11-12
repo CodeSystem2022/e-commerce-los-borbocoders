@@ -1,45 +1,76 @@
+<!--Es una etiqueta que no necesitacierre ya que es una etiqueta simple cuya función es facilitar información al
+servidor web que aloja la página-->
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TecnoFer</title>
 
-    <!--Styles-->
-    <link rel="stylesheet" href="../src/css/main.css">
-    <link rel="stylesheet" href="../src/css/products.css">
-    <link rel="stylesheet" href="../src/css/cart.css">
+<!--Etiqueta que se va a encargar de encerrar todo el documento html y en este caso además define el idiona que se utilizará.-->
+<html lang="es">
+
+<!--Etiqueta que define la cabecera del documento y contiene información de este que no es visible para el usuario-->>
+
+<head>
+    <meta charset="UTF-8"> <!--Etiqueta cuya función es añadir información sobre la página-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <!--Etiqueta que permite visualizar el sitio web a travé de diferentes dispositivos, estableciendo el ancho y el nivel de zoom inicial-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!--Favicon-->
+    <link rel="icon" href="../images/favicon.png" type="image/x-icon">
+    <!--Agregamos el título de la página-->
+    <title>Ecommerce</title>
+
+    <!--Styles--><!--Styles-->
+    <!--Enlaces que permiten vincular la hoja de Style a la hoja HTML-->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/products.css">
+    <link rel="stylesheet" href="./css/cart.css">
+      <!--Fonte awesome(iconos)-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
 </head>
+
+<!--Es el cuerpo del sitio web y la información contenida dentro es visible para el usuario-->
 <body>
-    <!--Comienza el header-->
+    <!--Comienza el header. Esta etiqueta va a contener el encabezado de una sección o documento-->
     <header class="header">
+
+        <!-- Menu de la página-->
         <div class="menu container">
             <a href="#" class="logo">TecnoFer</a>
 
+
+            <input type="checkbox" id="menu"/>
+            
             <label for="menu">
-                <img src="../images/menu_.png" alt="menu" class="menu-icono">
+                <!--Etiqueta que permite agregar imágenes a nuestra página web, acompañado del atributo SRC. Este atributo
+                   especifica la ubicación o dirección url de la imagen-->
+                <!--El atributo alt permitirá conocer el texto alternativo que describe la imagen, si por algún error la imagen no cargara o brindar mayor accesibilidad cuando el usuario utilice un lector de pantalla-->   
+                <img src="/frontend/images/menu.png" alt="menu" class="menu-icono">
+
             </label>
-            <!--Nsvegación-->
+
+            <!--Menu de Navegación. Etiqueta para generar la barra de navegación permitiéndones trasladarnos a otras paginas-->
             <nav class="navbar">
-                <ul>
+                <ul> <!--Etiqueta que permitir añadir un conjunto de listas no organizadas o numéricas-->
                     <li><a href="#">Inicio</a></li>
                     <li><a href="./templates/products.html">Productos</a></li>
+                    <li><a href="./templates/about.html">Nosotros</a></li>
                     <li><a href="./templates/contacto.html">Contacto</a></li>
-                </ul>
+                   </ul>
             </nav>
 
             <!--Carrito de compras-->
+            <!--div contenido. Esta etiqueta la utilizaremos para armar cajas en nuestro sitio web.
+            se pueden clasificar con class e identificar con id -->
             <div>
                 <ul>
                     <li class="submenu">
-                        <img src="../images/cart.svg" alt="cart" id="img-cart">
+
+                        <img src="/frontend/images/cart.svg" alt="carrito de compras" id="img-cart">
                         <div id="cart">
-                            <table id="cart-list">
+                            <table id="cart-list"> <!--Etiqueta que permite crear tablas-->
                                 <thead>
                                     <tr>
-                                        <th>Imagen</th>
-                                        <th>Nombre</th>
+                                        <th>Producto</th>
+                                        <th>Marca</th>
                                         <th>Precio</th>
                                         <th></th>
                                     </tr>
@@ -54,15 +85,18 @@
             </div> <!--Fin Carrito de compras-->
         </div>
 
-            <!--div contenido -->
+
+            <!--A través de las cajas organizamos los diferente contenido de la página principal-->
             <div class="header-contant container">
                 <div class="header-img">
-                    <img src="../images/menu_.png" alt="">
+
+                    <img src="../images/principal.png" alt="">
+
                 </div>
                 <div class="header-txt">
                     <h1>Ofertas Especiales</h1>
                     <p>Todos los martes y jueves un 20% de descuento pagando en efectivo</p>
-                    <a href="#" class="btn-1">Información</a>
+                    <a href="#" class="btn-1">Ofertas Cyber Week</a>
                 </div>
             </div>
     </header><!--Fin del header-->
@@ -70,32 +104,39 @@
     <!--Seccion Ofertas-->
     <section class="ofert container">
         <!--Oferta 1-->
+        <!--Enlaces que nos permite acceder a páginas con secciones según categorías-->
         <div class="ofert-1">
             <div class="ofert-img">
-                <img src="../images/img-6.png" alt="">
+
+                <img src="/frontend/images/f2_.png" alt="">
+
             </div>
             <div class="ofert-txt">
-                <h3>Producto 1</h3>
+                <h3>20% Descuento</h3>
                 <a href="#" class="btn-2">Informacion</a>
             </div>
         </div>
         <!--Oferta 2-->
         <div class="ofert-1">
             <div class="ofert-img">
-                <img src="../images/img-7.png" alt="">
+
+                <img src="/frontend/images/1_.png" alt="">
+
             </div>
             <div class="ofert-txt">
-                <h3>Producto 2</h3>
+                <h3>35% Descuento</h3>
                 <a href="#" class="btn-2">Informacion</a>
             </div>
         </div>
         <!--Oferta 3-->
         <div class="ofert-1">
             <div class="ofert-img">
-                <img src="../images/img-8.png" alt="">
+
+                <img src="/frontend/images/f3_.png" alt="">
+
             </div>
             <div class="ofert-txt">
-                <h3>Producto 3</h3>
+                <h3>Hasta 12 cuotas sin interes</h3>
                 <a href="#" class="btn-2">Informacion</a>
             </div>
         </div>
@@ -103,7 +144,7 @@
 
     <!--Productos-->
     <main class="products container" id="products">
-        <h2 id="productos">Productos</h2>
+        <h2 id="productos">CATEGORIAS</h2>
         <div class="product-content">
             <div id="product"></div>
     </main> <!--Fin productos-->
@@ -111,34 +152,34 @@
     <section class="icons container">
         <div class="icon-1">
             <div class="icon-txt">
-                <h3>Lorem, ipsum dolor.</h3>
+                <h3>HOGAR</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, nisi!
+                    Venta de productos para la constucción, remodelación, decoración, diseño y equipamiento para el hogar.
                 </p>
             </div>
         </div>
 
         <div class="icon-1">
             <div class="icon-txt">
-                <h3>Lorem, ipsum dolor.</h3>
+                <h3>OBRAS Y PROFESIONALES DE LA CONSTURCCIÓN</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, nisi!
+                    Somos representantes de las mejores marcas del mercado, hacemos envíos a todo el país.
                 </p>
             </div>
         </div>
 
         <div class="icon-1">
             <div class="icon-txt">
-                <h3>Lorem, ipsum dolor.</h3>
+                <h3>RUBRO METALÚRGICO Y MECÁNICO</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, nisi!
+                    Ofrecemos una amplia variedad de herramientas manuales y eléctricas  e insumos para la industria metalúrgica y metal mecánica.
                 </p>
             </div>
         </div>
 
     </section>
 
-  <!--Inicio Footer-->    
+  <!--Inicio Footer. Es una etiqueta compuesta, que se la conoce como pie de página -->   
     <footer class="footer" id="contactos">
         <div class="footer-content container">
             <div class="link">
@@ -146,7 +187,9 @@
                 <ul>
                     <li><a href="./index.html">Inicio</a></li>
                     <li><a href="./templates/products.html">Productos</a></li>
+                    <li><a href="./templates/about.html">Nosotros</a></li>
                     <li><a href="./templates/contacto.html">Contacto</a></li>
+
                 </ul>
             </div>
             <div class="link">
@@ -187,7 +230,7 @@
     </footer>
     <!--Fin footer-->
 
-    <!-- JS scripts -->
+    <!-- JS scripts - Script necesarios-->
     <script type="module" async>
         import { onInit } from './js/main.js';
         onInit()

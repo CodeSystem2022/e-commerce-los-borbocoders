@@ -148,12 +148,27 @@ function emptyCart() {
 }
 
 function saveCartToLocalStorage(cartData) {
-  localStorage.setItem("cart", JSON.stringify(cartData));
+  localStorage.setItem('cart', JSON.stringify(cartData));
+
+  saveTotalToLocalStorage();
+}
+
+function saveTotalToLocalStorage() {
+
+  const total = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+
+  localStorage.setItem('total', JSON.stringify(total));
 }
 
 function getCartFromLocalStorage() {
-  const cartData = localStorage.getItem("cart");
+      
+  const cartData = localStorage.getItem('cart');
   return cartData ? JSON.parse(cartData) : [];
 }
 
-export { loadEvents, addProduct, onInitCart };
+function getTotalFromLocalStorage() {
+  const total = localStorage.getItem('total');
+  return total ? JSON.parse(total) : 0;
+}
+
+export { loadEvents, addProduct, onInitCart, getCartFromLocalStorage, getTotalFromLocalStorage };
