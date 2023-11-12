@@ -1,9 +1,11 @@
 import os
+
 from dotenv import load_dotenv
 
 load_dotenv()
 
 ORIGIN = os.getenv('ORIGIN')
+
 
 class SetHeaders:
     @staticmethod
