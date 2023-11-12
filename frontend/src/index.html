@@ -27,13 +27,17 @@ servidor web que aloja la página-->
 <body>
     <!--Comienza el header. Esta etiqueta va a contener el encabezado de una sección o documento-->
     <header class="header">
+
+        <!-- Menu de la página-->
         <div class="menu container">
             <a href="#" class="logo">TecnoFer</a>
+            <input type="checkbox" id="menu"/>
             
             <label for="menu">
                 <!--Etiqueta que permite agregar imágenes a nuestra página web, acompañado del atributo SRC. Este atributo
                    especifica la ubicación o dirección url de la imagen-->
-                <img src="images/menu.png" alt="menu" class="menu-icono">
+                <!--El atributo alt permitirá conocer el texto alternativo que describe la imagen, si por algún error la imagen no cargara o brindar mayor accesibilidad cuando el usuario utilice un lector de pantalla-->   
+                <img src="/frontend/images/menu.png" alt="menu" class="menu-icono">
             </label>
 
             <!--Menu de Navegación. Etiqueta para generar la barra de navegación permitiéndones trasladarnos a otras paginas-->
@@ -41,22 +45,25 @@ servidor web que aloja la página-->
                 <ul> <!--Etiqueta que permitir añadir un conjunto de listas no organizadas o numéricas-->
                     <li><a href="#">Inicio</a></li>
                     <li><a href="templates/products.html">Productos</a></li>
-                    <li><a href="templates/about.html">About</a></li>
+                    <li><a href="templates/about.html">Nosotros</a></li>
+                    <!--TODO:agregar ruta a pagina Contacto-->
                     <li><a href="#">Contacto</a></li>
                    </ul>
             </nav>
 
             <!--Carrito de compras-->
+            <!--div contenido. Esta etiqueta la utilizaremos para armar cajas en nuestro sitio web.
+            se pueden clasificar con class e identificar con id -->
             <div>
                 <ul>
                     <li class="submenu">
-                        <img src="images/cart.svg" alt="cart" id="img-cart">
+                        <img src="/frontend/images/car.svg" alt="carrito de compras" id="img-cart">
                         <div id="cart">
                             <table id="cart-list"> <!--Etiqueta que permite crear tablas-->
                                 <thead>
                                     <tr>
-                                        <th>Imagen</th>
-                                        <th>Nombre</th>
+                                        <th>Producto</th>
+                                        <th>Marca</th>
                                         <th>Precio</th>
                                         <th></th>
                                     </tr>
@@ -71,18 +78,16 @@ servidor web que aloja la página-->
             </div> <!--Fin Carrito de compras-->
         </div>
 
-            <!--div contenido. Esta etiqueta la utilizaremos para armar cajas en nuestro sitio web.
-            se pueden clasificar con class e identificar con id -->
 
             <!--A través de las cajas organizamos los diferente contenido de la página principal-->
             <div class="header-contant container">
                 <div class="header-img">
-                    <img src="images/menu_.png" alt="">
+                    <img src="../images/principal.png" alt="">
                 </div>
                 <div class="header-txt">
                     <h1>Ofertas Especiales</h1>
                     <p>Todos los martes y jueves un 20% de descuento pagando en efectivo</p>
-                    <a href="#" class="btn-1">Información</a>
+                    <a href="#" class="btn-1">Ofertas Cyber Week</a>
                 </div>
             </div>
     </header><!--Fin del header-->
@@ -93,30 +98,30 @@ servidor web que aloja la página-->
         <!--Enlaces que nos permite acceder a páginas con secciones según categorías-->
         <div class="ofert-1">
             <div class="ofert-img">
-                <img src="/images/img-6.png" alt="">
+                <img src="/frontend/images/f2_.png" alt="">
             </div>
             <div class="ofert-txt">
-                <h3>Producto 1</h3>
+                <h3>20% Descuento</h3>
                 <a href="#" class="btn-2">Informacion</a>
             </div>
         </div>
         <!--Oferta 2-->
         <div class="ofert-1">
             <div class="ofert-img">
-                <img src="images/img-7.png" alt="">
+                <img src="/frontend/images/1_.png" alt="">
             </div>
             <div class="ofert-txt">
-                <h3>Producto 2</h3>
+                <h3>35% Descuento</h3>
                 <a href="#" class="btn-2">Informacion</a>
             </div>
         </div>
         <!--Oferta 3-->
         <div class="ofert-1">
             <div class="ofert-img">
-                <img src="images/img-8.png" alt="">
+                <img src="/frontend/images/f3_.png" alt="">
             </div>
             <div class="ofert-txt">
-                <h3>Producto 3</h3>
+                <h3>Hasta 12 cuotas sin interes</h3>
                 <a href="#" class="btn-2">Informacion</a>
             </div>
         </div>
@@ -124,7 +129,7 @@ servidor web que aloja la página-->
 
     <!--Productos-->
     <main class="products container" id="products">
-        <h2 id="productos">Productos</h2>
+        <h2 id="productos">CATEGORIAS</h2>
         <div class="product-content">
             <div id="product"></div>
     </main> <!--Fin productos-->
@@ -159,15 +164,16 @@ servidor web que aloja la página-->
         
     </section>
 
-  <!--Inicio Footer. Es una etiqueta compuesta, que se la conoce como pie de página -->    
+  <!--Inicio Footer. Es una etiqueta compuesta, que se la conoce como pie de página -->   
     <footer class="footer" id="contactos">
         <div class="footer-content container">
             <div class="link">
                 <h3>Tienda</h3>
                 <ul>
                     <li><a href="./index.html">Inicio</a></li>
-                    <li><a href="./index.html">Productos</a></li>
-                    <li><a href="./contacto.html">Contacto</a></li>
+                    <li><a href="templates/products.html">Productos</a></li>
+                    <!--TODO:agregar ruta a pagina Contacto-->
+                    <li><a href="#">Contacto</a></li>
                 </ul>
             </div>
 
