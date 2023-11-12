@@ -1,16 +1,18 @@
-import datetime
-import json
 import os
+import json
+import datetime
+
 import mercadopago
 from dotenv import load_dotenv
+
 from models.cart import Cart
 from models.customer import Customer
 from models.order import Order
 from models.product import *
 from services.order_service import OrderService
 from services.user_service import UserService
+from utils.request_parser import RequestParser
 from utils.set_headers import SetHeaders
-from utils.RequestParser import RequestParser
 
 load_dotenv()
 
@@ -19,7 +21,7 @@ CREATE_PREFERENCE_ENDPOINT = os.getenv('CREATE_PREFERENCE_ENDPOINT')
 
 class MercadopagoService:
     def __init__(self):
-        self.ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
+        self.ACCESS_TOKEN = os.getenv('MERCADOPAGO_API_KEY')
 
         if not self.ACCESS_TOKEN:
             raise ValueError('Access token not found.')
@@ -69,7 +71,6 @@ class MercadopagoService:
         order_data = data.get('order', {})
         customer_data = order_data.get('customer', {})
         customer = Customer(
-            customer_id=None,
             first_name=customer_data.get('firstName', ''),
             last_name=customer_data.get('lastName', ''),
             email=customer_data.get('email', ''),

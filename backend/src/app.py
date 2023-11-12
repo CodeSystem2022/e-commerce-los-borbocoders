@@ -1,10 +1,14 @@
+import os
 from http.server import HTTPServer
+
 from services.request_handler_service import RequestHandlerService
 
 
 class App:
     def __init__(self):
-        self._server_address = ('127.0.0.1', 8000)
+        host = os.getenv('DB_HOST')
+        port = int(os.getenv('DB_PORT'))
+        self._server_address = (host, port)
         self._httpd = HTTPServer(self._server_address, RequestHandlerService)
 
     def run(self):
