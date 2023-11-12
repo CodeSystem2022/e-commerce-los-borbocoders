@@ -3,9 +3,7 @@ from http.server import BaseHTTPRequestHandler
 
 from dotenv import load_dotenv
 
-from services.mercadopago_service import MercadopagoService
-from services.order_service import OrderService
-from services.product_service import ProductService
+from services.router import Router
 
 load_dotenv()
 
@@ -14,17 +12,9 @@ SAVE_ORDER_ENDPOINT = os.getenv('SAVE_ORDER_ENDPOINT')
 UPDATE_ORDER_STATUS_ENDPOINT = os.getenv('UPDATE_ORDER_STATUS_ENDPOINT')
 CREATE_PREFERENCE_ENDPOINT = os.getenv('CREATE_PREFERENCE_ENDPOINT')
 
-# Diccionario de Servicios
-
-services = {
-    PRODUCTS_ENDPOINT: ProductService(),
-    SAVE_ORDER_ENDPOINT: OrderService(),
-    UPDATE_ORDER_STATUS_ENDPOINT: OrderService(),
-    CREATE_PREFERENCE_ENDPOINT: MercadopagoService(),
-}
-
 
 class RequestHandlerService(BaseHTTPRequestHandler):
+    router = Router()
 
     # La clase RequestHandlerService es una clase que aplica herencia de la clase BaseHTTPRequestHandler con el objetivo de procesar las solicitudes http.
 
@@ -32,8 +22,8 @@ class RequestHandlerService(BaseHTTPRequestHandler):
     def do_GET(self):
         path = self.path
 
-        if path in services:
-            service_instance = services[path]
+        service_instance = self.router.get_service_instance(path)
+        if service_instance:
             service_instance.do_GET(self)
 
         else:
@@ -44,8 +34,8 @@ class RequestHandlerService(BaseHTTPRequestHandler):
     def do_POST(self):
         path = self.path
 
-        if path in services:
-            service_instance = services[path]
+        service_instance = self.router.get_service_instance(path)
+        if service_instance:
             service_instance.do_POST(self)
         else:
             # handle error
