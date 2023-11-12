@@ -1,5 +1,5 @@
 import os
-from dotenv import load_dotenv
+from dotpipenv import load_dotenv
 import mysql.connector
 from mysql.connector import pooling
 

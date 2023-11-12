@@ -5,7 +5,7 @@
 }
 
 .products{
-    padding: 50px 0;
+    padding: 150px 0 0 0;
     text-align: center;
 }
 
@@ -14,18 +14,18 @@
     font-family: 'Oswald', sans-serif;
     font-size: 50px;
     text-transform: uppercase;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
 }
 
 .product-content{
-    display: grid;
+    display: grid;  
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
 }
 
 .product{
     text-align: center;
-    padding: 30px;
+    padding: 0px;
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
 }
 
