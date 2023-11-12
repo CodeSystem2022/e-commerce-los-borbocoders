@@ -1,4 +1,4 @@
-/*Estilos generales para nuestro*/
+/*Estilos para la página de productos*/
 
 #product {
     display: contents;
@@ -9,11 +9,12 @@
     text-align: center;
 }
 
+
 .products h2{
-    color: #111111;
-    font-family: 'Oswald', sans-serif;
+    color: #111111; 
+    font-family: 'Oswald', sans-serif; 
     font-size: 50px;
-    text-transform: uppercase;
+    text-transform: uppercase; /*Transformamos el título a mayúsculas*/
     margin-bottom: 0px;
 }
 
