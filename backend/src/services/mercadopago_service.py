@@ -13,6 +13,7 @@ from services.order_service import OrderService
 from services.user_service import UserService
 from utils.request_parser import RequestParser
 from utils.set_headers import SetHeaders
+from utils.logger import Logger
 
 load_dotenv()
 
@@ -20,6 +21,9 @@ CREATE_PREFERENCE_ENDPOINT = os.getenv('CREATE_PREFERENCE_ENDPOINT')
 
 
 class MercadopagoService:
+
+    logger = Logger()
+
     def __init__(self):
         self.ACCESS_TOKEN = os.getenv('MERCADOPAGO_API_KEY')
 
@@ -63,7 +67,7 @@ class MercadopagoService:
             preference_id = preference_response["response"]["id"]
             return preference_id
         except Exception as e:
-            print(f"Failed to create preference: {str(e)}")
+            MercadopagoService.logger.log_error(message=f"Failed to create preference: {e}")
             return None
 
     def _handle_create_preference(self, handler):

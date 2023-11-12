@@ -1,7 +1,11 @@
 from database.database import Connection
+from utils.logger import Logger
 
 
 class UserService:
+
+    logger = Logger()
+
     @staticmethod
     def create_customer(customer_name, customer_lastname, customer_email, customer_address, customer_phone):
         try:
@@ -23,7 +27,7 @@ class UserService:
                     print('User saved successfully.')
                     return customer_id
         except Exception as e:
-            print(f"Error in create_customer: {str(e)}")
+            UserService.logger.log_error(f"Error in create_customer: {str(e)}")
             return None
 
     @staticmethod
@@ -41,5 +45,5 @@ class UserService:
                     else:
                         return None
         except Exception as e:
-            print(f"Error in get_customer_by_email: {str(e)}")
+            UserService.logger.log_error(f"Error in get_customer_by_email: {str(e)}")
             return None

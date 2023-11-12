@@ -3,9 +3,11 @@ from http.server import HTTPServer
 
 from services.request_handler_service import RequestHandlerService
 from utils.error_handler import ErrorHandler
+from utils.logger import Logger
 
 
 class App:
+    logger = Logger()
     def __init__(self):
         host = os.getenv('DB_HOST')
         port = int(os.getenv('DB_PORT'))
@@ -17,6 +19,7 @@ class App:
             self.logger.log_info(f'Server is running on {self._server_address}')
             self._httpd.serve_forever()
         except Exception as e:
+            self.logger.log_error(f"An error occurred while starting the server: {e}")
             ErrorHandler.handle_error(self._httpd, 500, "An error occurred: {}".format(str(e)))
 
 
