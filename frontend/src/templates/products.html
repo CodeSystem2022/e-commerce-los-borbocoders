@@ -20,16 +20,17 @@
             
             <nav class="navbar">
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="templates/products.html">Productos</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="../templates/about.html">Nosotros</a></li>
+                    <li><a href="../templates/contacto.html">Contacto</a></li>
                 </ul>
             </nav>
 
             <div>
                 <ul>
                     <li class="submenu">
-                        <img src="../images/cart.svg" alt="cart" id="img-cart">
+                        <img src="../../images/car.svg" alt="cart" id="img-cart">
                         <div id="cart">
                             <table id="cart-list">
                                 <thead>
@@ -61,8 +62,8 @@
         import {onInitProducts} from "../js/products.js"
         import { onInitCart } from "../js/cart.js";
 
-        onInitProducts()
-        onInitCart('products')
+        onInitProducts();
+        onInitCart('products');
     </script>
 </body>
 </html>
