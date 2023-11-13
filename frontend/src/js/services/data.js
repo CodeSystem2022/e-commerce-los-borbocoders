@@ -1,3 +1,5 @@
+ //Obtiene la lista de productos desde el servidor.
+
 async function getProducts() {
 
     try {
@@ -14,7 +16,7 @@ async function getProducts() {
       throw error; 
     }
   }
-  
+  //Guarda una orden en el servidor.
   async function saveOrder(order) {
   
     return new Promise(async (resolve, reject) => {
@@ -37,7 +39,7 @@ async function getProducts() {
       }
     });
   }
-  
+  //Crea una preferencia de pago en el servidor.
   async function createPreference(order) {
       try {
         const response = await fetch('http://127.0.0.1:8000/create_preference', {
@@ -61,7 +63,7 @@ async function getProducts() {
         console.error('Error!!!!!!!!!!!');
       }
   }
-  
+  //Actualiza el estado de una orden en el servidor.
   async function updateOrderStatus(orderId) {
   
     try {
@@ -81,5 +83,5 @@ async function getProducts() {
     }
   
   }
-    
+  // Exporta las funciones para su uso en otros módulos.
   export { getProducts, createPreference, saveOrder, updateOrderStatus };
