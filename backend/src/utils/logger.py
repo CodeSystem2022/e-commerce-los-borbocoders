@@ -1,7 +1,7 @@
 import logging
 import os
 
-class Logger:
+class Logger:  # Se encarga de generar logs en la carpeta logs en el archivo app.log
     def __init__(self, output_folder='logs', log_file='app.log'):
         self.logger = logging.getLogger(__name__)
         self.logger.setLevel(logging.INFO)
@@ -15,8 +15,8 @@ class Logger:
         file_handler.setFormatter(formatter)
         self.logger.addHandler(file_handler)
 
-    def log_info(self, message):
+    def log_info(self, message): # Genera logs de nivel INFO
         self.logger.info(message)
 
-    def log_error(self, message):
+    def log_error(self, message): # Genera logs de nivel ERROR
         self.logger.error(message)
