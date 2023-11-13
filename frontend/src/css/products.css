@@ -5,7 +5,7 @@
 }
 
 .products{
-    padding: 50px 0;
+    padding: 150px 0 0 0;
     text-align: center;
 }
 
@@ -13,8 +13,8 @@
     color: #111111;
     font-family: 'Oswald', sans-serif;
     font-size: 50px;
-    text-transform: uppercase;
-    margin-bottom: 50px;
+    text-transform: uppercase; /*Transformamos el título a mayúsculas*/
+    margin-bottom: 0px;
 }
 
 .product-content{
