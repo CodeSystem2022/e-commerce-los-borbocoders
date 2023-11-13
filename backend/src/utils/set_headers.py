@@ -7,7 +7,7 @@ load_dotenv()
 ORIGIN = os.getenv('ORIGIN')
 
 
-class SetHeaders:
+class SetHeaders: # Se encarga de configurar las cabeceras de las solicitudes HTTP
     @staticmethod
     def set_headers(response, status_code=200, content_type='application/json'):
         response.send_response(status_code)

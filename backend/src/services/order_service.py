@@ -24,9 +24,9 @@ UPDATE_ORDER_STATUS_ENDPOINT = os.getenv('/UPDATE_ORDER_STATUS_ENDPOINT')
 
 class OrderService:
 
-    logger = Logger()
+    logger = Logger() # Se crea una instancia del logger.
 
-    def do_POST(self, handler):
+    def do_POST(self, handler): # Este método procesa las solicitudes de tipo POST realizadas al servicio.
         if handler.path == SAVE_ORDER_ENDPOINT:
             response = self._handle_save_order(handler)
             SetHeaders.set_headers(handler)
@@ -40,8 +40,13 @@ class OrderService:
 
     @staticmethod
     def _handle_save_order(handler):
+
+        # Este método se encarga de guardar la orden
+
         try:
-            data = RequestParser.parse_request_body(handler)
+            data = RequestParser.parse_request_body(handler) # Se convierten los datos en un objeto
+
+            # Aqui se descompone el objeto
             order_data = data.get('order', {})
             customer_data = order_data.get('customer', {})
             customer = Customer(
@@ -55,6 +60,7 @@ class OrderService:
             payment_option = order_data.get('payment')
             cart_data = order_data.get('cart', 0)
 
+            # Se crea un objeto de tipo Cart y se agregan los productos de tipo Product
             cart = Cart()
 
             for product in cart_data:
@@ -67,6 +73,7 @@ class OrderService:
                 )
                 cart.add_product(new_product)
 
+            # Se recupera el ID del objeto Customer con el fin de asociar a una orden, si no se encuentra se registra
             customer.set_customer_id(UserService.get_customer_by_email(customer.email))
             if customer.customer_id is None:
                 (customer.
@@ -81,8 +88,10 @@ class OrderService:
                 )
             current_date = datetime.datetime.now()
 
+            # Se crea una orden en estado 'paid'.
             order = Order(customer.customer_id, current_date, customer.address, total, payment_option, 'paid')
 
+            # Si la orden fue creada se obtiene el ID para ser retornado y se actualiza el stock
             if order is not None:
                 order_id = OrderService.save_order_and_cart(order, cart)
                 ProductService.update_products_stock(cart)
@@ -95,18 +104,29 @@ class OrderService:
 
     @staticmethod
     def _handle_update_order_status(handler):
+
+
+        # Este metodo se encarga de actualizar el estado de la orden luego de que se aprobó el pago.
+
         try:
-            response = RequestParser.parse_request_body(handler)
+            response = RequestParser.parse_request_body(handler) # Se convierten los datos a un objeto.
             order_id = response.get('orderId')
 
             if order_id:
+
+                # Si existe el ID se actualiza el estado de la orden.
                 updated_status = OrderService._update_order_status(order_id)
+
                 if updated_status:
+
+                    # Si el estado de la orden fue actualizado se obtiene el carro.
                     cart = OrderService.get_cart_by_order_id(order_id)
 
+                    # Si no se puede obtener el carro se genera un log del error.
                     if cart is None:
-                        print('There was an error while retrieving the cart.')
+                        OrderService.logger.log_error('There was an error while retrieving the cart.')
                     else:
+                        # Si se obtuvo el carro entonces se actualiza el stock.
                         return ProductService.update_products_stock(cart)
         except Exception as e:
             OrderService.logger.log_error(f"Error in _handle_update_order_status: {e}")
@@ -114,6 +134,9 @@ class OrderService:
 
     @staticmethod
     def _update_order_status(order_id):
+
+        # Este metodo es el encargado directo de actualizar el estado de la orden
+
         try:
             with Connection.get_connection() as connection:
                 statement = '''
@@ -133,6 +156,8 @@ class OrderService:
 
     @staticmethod
     def _save_order(order):
+
+        # Este metodo es el encargado directo de guardar la orden
 
         try:
             with Connection.get_connection() as connection:
@@ -159,6 +184,8 @@ class OrderService:
 
     @staticmethod
     def _save_cart(order_id, cart: Cart):
+
+        # Este metodo es el encargado directo de guardar el carro
 
         products = cart.get_products()
 
@@ -188,6 +215,9 @@ class OrderService:
 
     @staticmethod
     def get_cart_by_order_id(order_id):
+
+        # Este metodo es el encargado directo de obtener los detalles del carro con un ID
+
         try:
             with Connection.get_connection() as connection:
                 with connection.cursor() as cursor:
@@ -197,6 +227,8 @@ class OrderService:
 
                     if results:
                         for row in results:
+
+                            # Se crea un objeto Cart y por cada fila se agrega un Product
                             cart = Cart(
                                 cart_id=row[0],
                                 order_id=row[1]
@@ -217,6 +249,10 @@ class OrderService:
     @staticmethod
     def save_order_and_cart(order, cart):
 
+        # Este metodo se encarga de dos funciones: guardar una orden y un carro
+        # con el fin de no relizar escritura en la base de datos si una de los dos falla, esto
+        # con el fin de evitar inconsistencias de datos.
+
         try:
             with Connection.get_connection() as connection:
                 with connection.cursor():
@@ -225,9 +261,11 @@ class OrderService:
                     order_id = OrderService._save_order(order)
                     OrderService._save_cart(order_id, cart)
 
+                    # Si todo fue exitoso se confirma la escritura en la base de datos
                     connection.commit()
                     return order_id
 
         except Exception as e:
+            # Si hubo un error se descarta la escritura en la base de datos.
             connection.rollback()
             OrderService.logger.log_error(f'Error in save_order_and_cart: {e}')
