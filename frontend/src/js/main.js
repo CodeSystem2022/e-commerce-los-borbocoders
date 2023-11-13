@@ -12,4 +12,3 @@ export async function onInit() {
   onInitCart("main");
 }
 
-

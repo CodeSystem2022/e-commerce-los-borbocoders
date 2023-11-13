@@ -58,30 +58,29 @@ function setupButtons() {
 }
 // Crea un botón para el pago en efectivo
 function createCashPaymentSubmitButton() {
-
-    document.getElementById('wallet_container').innerHTML = ''; 
-    const cashContainer = document.getElementById('cash_container');
-    const buttonSubmit = document.createElement('button');
-    buttonSubmit.id = 'cashSubmit';
-    buttonSubmit.innerHTML = 'Continuar';
-    buttonSubmit.addEventListener('click', handleCashPayment);    
-    cashContainer.appendChild(buttonSubmit);
+  document.getElementById("wallet_container").innerHTML = "";
+  const cashContainer = document.getElementById("cash_container");
+  const buttonSubmit = document.createElement("button");
+  buttonSubmit.id = "cashSubmit";
+  buttonSubmit.innerHTML = "Continuar";
+  buttonSubmit.addEventListener("click", handleCashPayment);
+  cashContainer.appendChild(buttonSubmit);
 }
 // Maneja el evento de selección de método de pago
 function handlePayment(event) {
+  const selectedPaymentMethod = document.querySelector(
+    "input[name=paymentMethod]:checked"
+  ).value;
 
-    const selectedPaymentMethod = document.querySelector('input[name=paymentMethod]:checked').value;
-
-    if (selectedPaymentMethod === 'cash') {
-        createCashPaymentSubmitButton();
-
-    } else if (selectedPaymentMethod === 'mercadopago') {
-        document.getElementById('wallet_container').innerHTML = ''; 
-        const cashContainer = document.getElementById('cash_container');
-        const buttonSubmit = document.getElementById('cashSubmit');
-        cashContainer.removeChild(buttonSubmit);
-        handleMercadopagoPayment(event);
-    }
+  if (selectedPaymentMethod === "cash") {
+    createCashPaymentSubmitButton();
+  } else if (selectedPaymentMethod === "mercadopago") {
+    document.getElementById("wallet_container").innerHTML = "";
+    const cashContainer = document.getElementById("cash_container");
+    const buttonSubmit = document.getElementById("cashSubmit");
+    cashContainer.removeChild(buttonSubmit);
+    handleMercadopagoPayment(event);
+  }
 }
 // Maneja el proceso de pago con MercadoPago
 async function handleMercadopagoPayment(event) {
@@ -128,23 +127,23 @@ async function handleCashPayment(event) {
 }
 // Crea un objeto de orden con la información del formulario
 function createOrder() {
-    const firstName = document.getElementById("first-name").value;
-    const lastName = document.getElementById("last-name").value;
-    const email = document.getElementById("email").value;
-    const address = document.getElementById("address").value;
-    const phone = document.getElementById("phone").value;
-  
-    return {
-      customer: {
-        firstName,
-        lastName,
-        email,
-        address,
-        phone,
-      },
-      cart: cart,
-      total: total,
-    };
+  const firstName = document.getElementById("first-name").value;
+  const lastName = document.getElementById("last-name").value;
+  const email = document.getElementById("email").value;
+  const address = document.getElementById("address").value;
+  const phone = document.getElementById("phone").value;
+
+  return {
+    customer: {
+      firstName,
+      lastName,
+      email,
+      address,
+      phone,
+    },
+    cart: cart,
+    total: total,
+  };
 }
 // Exportar la función principal para iniciar el proceso de pago
 export { onInitCheckout };
