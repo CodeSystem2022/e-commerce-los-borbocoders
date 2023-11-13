@@ -1,6 +1,6 @@
-# TecnoFer - 
+# TecnoFer - E-commerce
 
-Ecommerce de una ferretería de tipo industrial cuyo propósito es expandir su cartera de clientes y fidelizar los ya existentes, sumando a la tradicional modalidad de venta presencial el sistema de venta on line
+Ecommerce de una ferretería de tipo industrial cuyo propósito es expandir su cartera de clientes y fidelizar los ya existentes, sumando a la tradicional modalidad de venta presencial el sistema de venta online
 
 
 -------------------------------------
@@ -19,25 +19,21 @@ La distribución se realiza a través de una página web con E-commerce y redes 
 
 ## **TECNOLOGÍAS EMPLEADAS Y FUNCIONALIDADES**
 
-Backend:
+**Backend**:
 
-Python se utiliza de manera integral en el backend del proyecto, desde la definición de modelos hasta la lógica principal del servidor. La modularidad del código permite una fácil expansión y mantenimiento, y el manejo de excepciones y registro de errores contribuye a la robustez y la confiabilidad del sistema. El código refleja un diseño orientado a objetos y sigue buenas prácticas para el desarrollo de servidores web en Python.
+`Python` se utiliza de manera integral en el backend del proyecto, desde la definición de modelos hasta la lógica principal del servidor. La modularidad del código permite una fácil expansión y mantenimiento, y el manejo de excepciones y registro de errores contribuye a la robustez y la confiabilidad del sistema. El código refleja un diseño orientado a objetos y sigue buenas prácticas para el desarrollo de servidores web en Python.
 
-
-Frontend:
-
-El frontend del proyecto utiliza una combinación de HTML, CSS y JavaScript para crear una interfaz de usuario atractiva y funcional. La estructura HTML organiza los elementos de la página, el CSS proporciona estilos y diseño, y el JavaScript agrega interactividad y dinamismo. La modularización del código en JavaScript facilita el mantenimiento y la escalabilidad del proyecto, mientras que las consultas de medios en CSS garantizan una experiencia de usuario consistente en diferentes dispositivos. El diseño responsivo y los estilos visualmente atractivos contribuyen a la usabilidad y la presentación general del sitio web.
-
-
-Base de Datos:
-
-MySQL se utiliza como el motor de base de datos para almacenar y gestionar la información crítica del proyecto. Esto abarca desde datos de usuarios hasta cualquier otra entidad que requiera persistencia.
+`MySQL` se utiliza como el motor de base de datos para almacenar y gestionar la información crítica del proyecto. Esto abarca desde datos de usuarios hasta cualquier otra entidad que requiera persistencia.
 Se implementa un sistema de pool de conexiones que gestiona eficientemente el acceso a la base de datos, evitando la sobrecarga de abrir y cerrar conexiones repetidamente.
 MySQL es conocido por su rendimiento eficiente, lo que garantiza una rápida recuperación y manipulación de datos.
 
 Para garantizar la seguridad de los datos, las credenciales de acceso a la base de datos se manejan mediante variables de entorno, asegurando que la información sensible no esté expuesta en el código fuente.
 
 La elección de MySQL como sistema de gestión de bases de datos refleja la confiabilidad y eficiencia requeridas para el almacenamiento y recuperación de datos en el proyecto. El sistema de pool de conexiones implementado contribuye a una interacción eficiente y segura con la base de datos.
+
+**Frontend**:
+
+El frontend del proyecto utiliza una combinación de HTML, CSS y JavaScript para crear una interfaz de usuario atractiva y funcional. La estructura HTML organiza los elementos de la página, el CSS proporciona estilos y diseño, y el JavaScript agrega interactividad y dinamismo. La modularización del código en JavaScript facilita el mantenimiento y la escalabilidad del proyecto, mientras que las consultas de medios en CSS garantizan una experiencia de usuario consistente en diferentes dispositivos. El diseño responsivo y los estilos visualmente atractivos contribuyen a la usabilidad y la presentación general del sitio web.
 
 -------------------------------------
 
@@ -91,153 +87,144 @@ La elección de MySQL como sistema de gestión de bases de datos refleja la conf
 1. **No se requiere instalación específica para el frontend.**
    - Abrir Visual Studio Code u otro IDE y abrir con un servidor local como `Live Server`
 
-¡Listo! Ahora deberías tener tu entorno de desarrollo configurado correctamente.
-```
+¡Listo! Ahora deberías tener tu entorno de desarrollo configurado correctamente.  
 
 
--------------------------------------
+## PAUTAS DE CONTRIBUCIONES
+**Metodología**
 
-## **COMO UTILIZAR EL PROYECTO**
+Este proyecto sigue la metodología ágil Scrum para la gestión y desarrollo. Las funciones específicas de cada colaborador se asignaron siguiendo los principios de Scrum. 
 
+**Roles en Scrum:**
+**Scrum Master:**
 
--------------------------------------
+En este proyecto, el Scrum Master es responsable de asegurar que el equipo siga las prácticas y principios de Scrum.
+Colaboradores, al realizar contribuciones, deben tener en cuenta las sugerencias y orientaciones proporcionadas por el Scrum Master.
 
-## **PAUTAS DE CONTRIBUCIONES**
-<h3>Metodología</h3>
+**Product Owner:**
 
-<p>Este proyecto sigue la metodología ágil Scrum para la gestión y desarrollo. Las funciones específicas de cada colaborador se asignaron siguiendo los principios de Scrum. </p>
+El Product Owner es la persona encargada de definir las historias de usuario y establecer las prioridades.
+Las contribuciones deben alinearse con las historias de usuario y prioridades establecidas por el Product Owner.
 
-<h3>Roles en Scrum:</h3>
-<h4>Scrum Master:</h4>
+**Equipo de Desarrollo:**
 
-<p>En este proyecto, el Scrum Master es responsable de asegurar que el equipo siga las prácticas y principios de Scrum.</p>
-<p>Colaboradores, al realizar contribuciones, deben tener en cuenta las sugerencias y orientaciones proporcionadas por el Scrum Master.</p>
+Los colaboradores forman parte del equipo de desarrollo y son responsables de implementar las funcionalidades definidas en las historias de usuario.
+La comunicación y colaboración estrecha dentro del equipo son esenciales para el éxito del proyecto.
 
-<h4>Product Owner:</h4>
+**Reuniones de Scrum:**
+**Sprint Planning:**
 
-<p>El Product Owner es la persona encargada de definir las historias de usuario y establecer las prioridades.</p>
-<p>Las contribuciones deben alinearse con las historias de usuario y prioridades establecidas por el Product Owner.</p>
+Antes de cada sprint, el equipo realiza una reunión de planificación para definir las tareas y compromisos para el próximo sprint.
+Colaboradores deben participar activamente en estas reuniones y comprometerse con las tareas asignadas.
 
-<h4>Equipo de Desarrollo:</h4>
+**Daily Scrum:**
 
-<p>Los colaboradores forman parte del equipo de desarrollo y son responsables de implementar las funcionalidades definidas en las historias de usuario.</p>
-<p>La comunicación y colaboración estrecha dentro del equipo son esenciales para el éxito del proyecto.</p>
+Durante el sprint, se lleva a cabo una reunión diaria de Scrum para sincronizar el progreso y abordar posibles obstáculos.
+Colaboradores deben participar en las reuniones diarias y comunicar de manera proactiva cualquier problema o bloqueo.
 
-<h3>Reuniones de Scrum:</h3>
-<h4>Sprint Planning:</h4>
+**Sprint Review y Retrospectiva:**
 
-<p>Antes de cada sprint, el equipo realiza una reunión de planificación para definir las tareas y compromisos para el próximo sprint.</p>
-<p>Colaboradores deben participar activamente en estas reuniones y comprometerse con las tareas asignadas.</p>
+Al final de cada sprint, se realiza una revisión para demostrar las funcionalidades implementadas y una retrospectiva para identificar mejoras.
+Los colaboradores deben participar en estas sesiones para discutir el trabajo realizado y proponer mejoras.
 
-<h4>Daily Scrum:</h4>
+**Historias de Usuario y Tareas:**
+**Creación y Asignación:**
 
-<p>Durante el sprint, se lleva a cabo una reunión diaria de Scrum para sincronizar el progreso y abordar posibles obstáculos.</p>
-<p>Colaboradores deben participar en las reuniones diarias y comunicar de manera proactiva cualquier problema o bloqueo.</p>
+Las historias de usuario y tareas son creadas por el Product Owner y asignadas durante las reuniones de planificación.
+Los colaboradores deben trabajar en tareas asignadas y asegurarse de entender completamente los requisitos de las historias de usuario.
 
-<h4>Sprint Review y Retrospectiva:</h4>
+**Actualización del Estado:**
 
-<p>Al final de cada sprint, se realiza una revisión para demostrar las funcionalidades implementadas y una retrospectiva para identificar mejoras.</p>
-<p>Los colaboradores deben participar en estas sesiones para discutir el trabajo realizado y proponer mejoras.</p>
+Las herramientas de seguimiento (como tableros Scrum) deben actualizarse regularmente para reflejar el estado actual de las tareas.
+Es crucial mantener la transparencia en el progreso del trabajo.
 
-<h3>Historias de Usuario y Tareas:</h3>
-<h4>Creación y Asignación:</h4>
+**Comunicación:**
+**Canal de Comunicación:**
 
-<p>Las historias de usuario y tareas son creadas por el Product Owner y asignadas durante las reuniones de planificación.</p>
-<p>Los colaboradores deben trabajar en tareas asignadas y asegurarse de entender completamente los requisitos de las historias de usuario.</p>
+Utilizamos canales específicos de comunicación, como reuniones de Scrum y plataformas colaborativas, para mantener una comunicación efectiva.
+Colaboradores deben utilizar los canales designados para discutir problemas, compartir actualizaciones y colaborar.
 
-<h4>Actualización del Estado:</h4>
+**Feedback Constructivo:**
 
-<p>Las herramientas de seguimiento (como tableros Scrum) deben actualizarse regularmente para reflejar el estado actual de las tareas.</p>
-<p>Es crucial mantener la transparencia en el progreso del trabajo.</p>
+Se alienta a los colaboradores a proporcionar y recibir feedback constructivo de manera regular.
+El feedback es esencial para el aprendizaje continuo y la mejora del equipo.
 
-<h3>Comunicación:</h3>
-<h4>Canal de Comunicación:</h4>
-
-<p>Utilizamos canales específicos de comunicación, como reuniones de Scrum y plataformas colaborativas, para mantener una comunicación efectiva.</p>
-<p>Colaboradores deben utilizar los canales designados para discutir problemas, compartir actualizaciones y colaborar.</p>
-
-<h4>Feedback Constructivo:</h4>
-
-<p>Se alienta a los colaboradores a proporcionar y recibir feedback constructivo de manera regular.</p>
-<p>El feedback es esencial para el aprendizaje continuo y la mejora del equipo.</p>
-
-<h3>Pautas Generales de Contribución:</h3>
-<h4>Branches y Commits:</h4>
+**Pautas Generales de Contribución:**
+**Branches y Commits:**
 
 
-<p>Crea branches específicos para las características o correcciones que estás implementando.</p>
-<p>Realiza commits significativos y utiliza mensajes descriptivos.</p>
+Crea branches específicos para las características o correcciones que estás implementando.
+Realiza commits significativos y utiliza mensajes descriptivos.
 
-<h4>Pull Requests:</h4>
+**Pull Requests:**
 
-<p>Abre pull requests claros y concisos.</p>
-<p>Asocia tus pull requests con las historias de usuario correspondientes.</p>
+Abre pull requests claros y concisos.
+Asocia tus pull requests con las historias de usuario correspondientes.
 
-<h4>Revisión de Código:</h4>
+**Revisión de Código:**
 
-<p>Participa en la revisión de código y responde a los comentarios de manera oportuna.</p>
-<p>Aprende de la revisión de código y busca la mejora continua.</p>
+Participa en la revisión de código y responde a los comentarios de manera oportuna.
+Aprende de la revisión de código y busca la mejora continua.
 
-<h4>Testing:</h4>
+**Testing:**
 
-<p>Asegúrate de que tus contribuciones estén probadas y no introduzcan problemas en el proyecto.</p>
-<p>Participa en pruebas de calidad y asegúrate de cumplir con las expectativas definidas en las historias de usuario.</p>
+Asegúrate de que tus contribuciones estén probadas y no introduzcan problemas en el proyecto.
+Participa en pruebas de calidad y asegúrate de cumplir con las expectativas definidas en las historias de usuario.
 
-<h3>Forkea el Repositorio:</h3>
+**Forkea el Repositorio:**
 
-<p>Haz un fork de este repositorio a tu cuenta de GitHub.</p>
-<p>Clona el repositorio desde tu cuenta a tu máquina local.</p>
-
+Haz un fork de este repositorio a tu cuenta de GitHub.
+Clona el repositorio desde tu cuenta a tu máquina local.
+```bash
 git clone [https://github.com/TU_USUARIO/e-commerce-university.git]
 cd e-commerce-los-borbocoders
+```
+**Desarrollo en Ramas:**
 
-<h3>Desarrollo en Ramas:</h3>
-
-<p>Crea una rama para tu contribución.</p>
-
+Crea una rama para tu contribución.
+```bash
 git checkout -b nombre-de-tu-rama
 Realiza tus cambios o adiciones en esta rama.
+```
+**Commits Significativos:**
 
-<h3>Commits Significativos:</h3>
-
-<p>Realiza commits significativos que reflejen los cambios que estás haciendo.</p>
-
+Realiza commits significativos que reflejen los cambios que estás haciendo.
+```bash
 git commit -m "Añadir funcionalidad de carrito de compras"
+```
+**Actualiza tu Rama:**
 
-<h3>Actualiza tu Rama:</h3>
-
-<p>Antes de enviar tu pull request, asegúrate de que tu rama está actualizada con la rama principal.</p>
-
+Antes de enviar tu pull request, asegúrate de que tu rama está actualizada con la rama principal.
+```bash
 git pull origin main
-<p>Resuelve cualquier conflicto que pueda surgir.<p>
+```
+Resuelve cualquier conflicto que pueda surgir.
   
-<h3>Envía tu Pull Request:</h3>
+**Envía tu Pull Request:**
 
-<p>Abre un pull request desde tu rama a la rama principal del proyecto.</p>
-<p>Reportar Problemas y Proponer Mejoras</p>
-<h2>Si encuentras problemas o tienes ideas para mejorar el proyecto, utiliza el sistema de issues de GitHub:</h2>
+Abre un pull request desde tu rama a la rama principal del proyecto.
+Reportar Problemas y Proponer Mejoras
+Si encuentras problemas o tienes ideas para mejorar el proyecto, utiliza el sistema de issues de GitHub:
 
-<h3>Issues:</h3>
+**Issues:**
 
-<p>Crea un issue para reportar problemas.</p>
-<p>Utiliza etiquetas para clasificar el tipo de problema (bug, mejora, etc.).</p>
-<p>Proporciona detalles claros y contexto sobre el problema.</p>
+Crea un issue para reportar problemas.
+Utiliza etiquetas para clasificar el tipo de problema (bug, mejora, etc.).
+Proporciona detalles claros y contexto sobre el problema.
 
-<h3>Pull Requests:</h3>
+**Pull Requests:**
 
-<p>Para proponer mejoras, crea un pull request.</p>
-<p>Describe claramente la mejora propuesta y proporciona contexto.</p>
-<p>Asegúrate de que tus cambios sean compatibles con la metodología Scrum y no rompan funcionalidades existentes.</p>
+Para proponer mejoras, crea un pull request.
+Describe claramente la mejora propuesta y proporciona contexto.
+Asegúrate de que tus cambios sean compatibles con la metodología Scrum y no rompan funcionalidades existentes.
 
 -------------------------------------
 
 ## **LICENCIA DE USO**  
 
 1. Definiciones
-1.1 "Sitio Web"
-Refiere a la página web de Tecnofer Ferretería Virtual, accesible en www.tecnofer.com.ar
-
-1.2 "Usuario"
+   
+1. "Usuario"
 Cualquier persona que acceda o utilice el Sitio Web de Tecnofer Ferretería Virtual, ya sea como visitante o cliente.
 
 2. Concesión de Licencia
@@ -263,21 +250,12 @@ Tecnofer Ferretería Virtual no será responsable de cualquier daño directo, in
 9. Terminación
 Esta licencia está vigente hasta que sea terminada por el Usuario o Tecnofer Ferretería Virtual. Tecnofer Ferretería Virtual puede terminar esta licencia en cualquier momento sin previo aviso si se determina que el Usuario ha incumplido los términos de la licencia.
 
-10. Ley Aplicable
-Esta licencia se regirá e interpretará de acuerdo con las leyes del [país] y cualquier disputa relacionada con esta licencia estará sujeta a la jurisdicción de los tribunales de [ciudad].
+10.  Ley Aplicable
+Esta licencia se regirá e interpretará de acuerdo con las leyes del país y cualquier disputa relacionada con esta licencia estará sujeta a la jurisdicción de los tribunales de su ciudad.
 
-11. Contacto
-Para cualquier consulta relacionada con esta licencia, puedes ponerte en contacto con Tecnofer Ferretería Virtual en Info@tecnofer.com.ar
 Fecha de entrada en vigor: [13/11/2023]
 
--------------------------------------
-
-## `TABLA DE CONTENIDOS`
-
-- Indroduccion
-- Tecnologias empleadas y funcionalidades
-- Instalación
-- Estructura del Proyecto
+<img src="https://raw.githubusercontent.com/CodeSystem2022/LosBorbocoders_4to_Semestre/main/media/borbocoders_icon.jpeg" width=20% height=20%><img src="https://raw.githubusercontent.com/CodeSystem2022/LosBorbocoders_4to_Semestre/main/media/utn_icon.png" width=20% height=20%> 
 
 
 
