@@ -1,4 +1,4 @@
-# TecnoFer - 
+# TecnoFer - E-commerce
 
 Ecommerce de una ferretería de tipo industrial cuyo propósito es expandir su cartera de clientes y fidelizar los ya existentes, sumando a la tradicional modalidad de venta presencial el sistema de venta on line
 
@@ -93,14 +93,6 @@ La elección de MySQL como sistema de gestión de bases de datos refleja la conf
 
 ¡Listo! Ahora deberías tener tu entorno de desarrollo configurado correctamente.
 ```
-
-
--------------------------------------
-
-## **COMO UTILIZAR EL PROYECTO**
-
-
--------------------------------------
 
 ## **PAUTAS DE CONTRIBUCIONES**
 **Metodología**
