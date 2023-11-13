@@ -7,7 +7,7 @@ from utils.logger import Logger
 
 
 class App:
-    logger = Logger()
+    logger = Logger() # Instancia de Logger
 
     def __init__(self):
 
