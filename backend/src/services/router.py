@@ -15,7 +15,14 @@ CREATE_PREFERENCE_ENDPOINT = os.getenv('CREATE_PREFERENCE_ENDPOINT')
 
 
 class Router:
+
+    # La clase Router se encarga de dirigir las solicitudes hacia el servicio apropiado.
+    # It initializes with a dictionary of endpoints and their corresponding service instances.
+    #
     def __init__(self):
+
+        # Inicializa con un diccionario de 'endpoints' y sus instancias de servicios correspondientes
+
         self.routes = {
             PRODUCTS_ENDPOINT: ProductService(),
             SAVE_ORDER_ENDPOINT: OrderService(),
@@ -23,5 +30,5 @@ class Router:
             CREATE_PREFERENCE_ENDPOINT: MercadopagoService(),
         }
 
-    def get_service_instance(self, path):
+    def get_service_instance(self, path): # Devuelve una instancia del servicio asociado con el 'endpoint' recibido
         return self.routes.get(path)

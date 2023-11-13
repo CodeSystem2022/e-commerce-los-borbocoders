@@ -1,7 +1,7 @@
 import json
 
 
-class RequestParser:
+class RequestParser: # Se encarga de convertir los datos a un objeto
     @staticmethod
     def parse_request_body(handler):
         content_length = int(handler.headers['Content-Length'])

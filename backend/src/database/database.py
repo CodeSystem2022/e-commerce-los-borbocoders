@@ -6,6 +6,8 @@ from mysql.connector import pooling
 
 load_dotenv()
 
+# Parametros de configuración de la base de datos
+
 dbconfig = {
     "host": os.getenv("DB_HOST"),
     "user": os.getenv("DB_USER"),
@@ -16,6 +18,8 @@ dbconfig = {
 
 class PoolConnection:
     _pool = None
+
+    # La clase PoolConnection se encarga de administrar las conexiones
 
     @classmethod
     def get_pool(cls):
@@ -39,6 +43,9 @@ class PoolConnection:
          
 
 class Connection:
+
+    # La clase Connection se encarga de devolver una conexion desde la clase PoolConnection
+
     @classmethod
     def get_connection(cls):
         try:
