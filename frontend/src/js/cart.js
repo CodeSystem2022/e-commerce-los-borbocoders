@@ -8,13 +8,40 @@ const cart = [];
 
 // Función para inicializar el carrito
 async function onInitCart(path) {
-   // Si hay datos en el carrito almacenados localmente, mostrarlos
+  // Carga eventos relacionados con el carrito
+  loadEvents(path);
+  // Si hay datos en el carrito almacenados localmente, mostrarlos
   if (getCartFromLocalStorage() != null) {
     const cartData = getCartFromLocalStorage();
     displayCart(cartData);
   }
 }
-
+// Función para cargar eventos según el contexto de la página
+function loadEvents(path) {
+  // Agrega eventos para eliminar producto y vaciar carrito
+  deleteProductButton.addEventListener("click", deleteProduct);
+  emptyCartButton.addEventListener("click", emptyCart);
+  // Agrega eventos según la página principal o de productos
+  // Agrega evento para ir a la página de checkout
+  if (path === "main") {
+    productList.addEventListener("click", addProduct);
+    goToCheckout.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.location.href = "./templates/checkout.html";
+    });
+  } else if (path === "products") {
+    productList.addEventListener("click", addProduct);
+    goToCheckout.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.location.href = "./checkout.html";
+    });
+  } else {
+    goToCheckout.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.location.href = "./checkout.html";
+    });
+  }
+}
 // Función para agregar un producto al carrito
 function addProduct(event) {
   event.preventDefault();
@@ -157,6 +184,7 @@ function getTotalFromLocalStorage() {
 }
 // Exporta funciones relevantes
 export {
+  loadEvents,
   addProduct,
   onInitCart,
   getCartFromLocalStorage,
