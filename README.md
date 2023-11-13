@@ -17,7 +17,58 @@ Ecommerce de una ferretería de tipo industrial cuyo propósito es expandir su c
 
 -------------------------------------
 
-## **INSTALACIÓN**
+## **INSTRUCCIONES DE INSTALACIÓN**
+
+### Backend
+
+1. **Configuración del entorno virtual (opcional pero recomendado):**
+   ```bash
+   python -m venv el_nombre_del_entorno
+   source venv/bin/activate  # En sistemas basados en Unix
+   # o
+   .\venv\Scripts\activate  # En sistemas basados en Windows
+   ```
+
+2. **Instalación de dependencias:**
+   ```bash
+   pip install python-dotenv
+   pip install mysql-connector-python
+   pip install mercadopago
+   ```
+
+3. **Configuración de variables de entorno:**
+   - Crea un archivo `.env` en la raíz del proyecto.
+   - Agrega las siguientes variables con sus valores correspondientes:
+     ```dotenv
+     Database
+     DB_HOST=tu_mysql_host
+     DB_USER=tu_mysql_user
+     DB_PASSWORD=tu_mysql_password
+     DB_DATABASE=your_tu_mysql_database
+
+     Mercadopago
+     MERCADOPAGO_API_KEY=your_mercadopago_api_key
+
+     Enpoints
+     PRODUCTS_ENDPOINT=/products
+     SAVE_ORDER_ENDPOINT=/save_order
+     UPDATE_ORDER_STATUS_ENDPOINT=/update_order_status
+     CREATE_PREFERENCE_ENDPOINT=/create_preference
+     ORIGIN = '*'
+     ```
+
+4. **Ejecutar la aplicación:**
+   ```bash
+   python app.py
+   ```
+
+### Frontend
+
+1. **No se requiere instalación específica para el frontend.**
+   - Abrir Visual Studio Code u otro IDE y abrir con un servidor local como `Live Server`
+
+¡Listo! Ahora deberías tener tu entorno de desarrollo configurado correctamente.
+```
 
 
 -------------------------------------
