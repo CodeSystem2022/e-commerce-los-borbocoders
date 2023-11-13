@@ -1,10 +1,12 @@
 import os
-from dotenv import load_dotenv
+
 import mysql.connector
+from dotenv import load_dotenv
 from mysql.connector import pooling
 
-
 load_dotenv()
+
+# Parametros de configuración de la base de datos
 
 dbconfig = {
     "host": os.getenv("DB_HOST"),
@@ -16,6 +18,8 @@ dbconfig = {
 
 class PoolConnection:
     _pool = None
+
+    # La clase PoolConnection se encarga de administrar las conexiones
 
     @classmethod
     def get_pool(cls):
@@ -34,11 +38,14 @@ class PoolConnection:
                 print(f'Error while creating the Pool: {e}')
             except ValueError as e:
                 print(f'Configuration error: {e}')
-        else
+        else:
             return cls.get_pool
          
 
 class Connection:
+
+    # La clase Connection se encarga de devolver una conexion desde la clase PoolConnection
+
     @classmethod
     def get_connection(cls):
         try:
@@ -47,6 +54,3 @@ class Connection:
             return connection
         except Exception as e:
             print(f'Error: {e}')
-
-
-

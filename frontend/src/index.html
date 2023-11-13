@@ -1,8 +1,8 @@
-<!--Es una etiqueta que no necesitacierre ya que es una etiqueta simple cuya función es facilitar información al
+<!--Es una etiqueta que no necesita cierre ya que es una etiqueta simple cuya función es facilitar información al
 servidor web que aloja la página-->
 <!DOCTYPE html>
 
-<!--Etiqueta que se va a encargar de encerrar todo el documento html y en este caso además define el idiona que se utilizará.-->
+<!--Etiqueta que se va a encargar de encerrar todo el documento html y en este caso además define el idioma que se utilizará.-->
 <html lang="es">
 
 <!--Etiqueta que define la cabecera del documento y contiene información de este que no es visible para el usuario-->>
@@ -12,15 +12,18 @@ servidor web que aloja la página-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <!--Etiqueta que permite visualizar el sitio web a travé de diferentes dispositivos, estableciendo el ancho y el nivel de zoom inicial-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
+    <!--Favicon-->
+    <link rel="icon" href="../images/favicon.png" type="image/x-icon">
     <!--Agregamos el título de la página-->
     <title>Ecommerce</title>
 
     <!--Styles--><!--Styles-->
     <!--Enlaces que permiten vincular la hoja de Style a la hoja HTML-->
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/products.css">
-    <link rel="stylesheet" href="./css/cart.css">
+    <link rel="stylesheet" href="../src/css/main.css">
+    <link rel="stylesheet" href="../src/css/products.css">
+    <link rel="stylesheet" href="../src/css/cart.css">
+     <!--Fonte awesome(iconos)-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <!--Es el cuerpo del sitio web y la información contenida dentro es visible para el usuario-->
@@ -34,20 +37,18 @@ servidor web que aloja la página-->
             <input type="checkbox" id="menu"/>
             
             <label for="menu">
-                <!--Etiqueta que permite agregar imágenes a nuestra página web, acompañado del atributo SRC. Este atributo
-                   especifica la ubicación o dirección url de la imagen-->
+                <!--Etiqueta que permite agregar imágenes a nuestra página web, acompañado del atributo SRC. Este atributo especifica la ubicación o dirección url de la imagen-->
                 <!--El atributo alt permitirá conocer el texto alternativo que describe la imagen, si por algún error la imagen no cargara o brindar mayor accesibilidad cuando el usuario utilice un lector de pantalla-->   
-                <img src="/frontend/images/menu.png" alt="menu" class="menu-icono">
+                <img src="../images/menu_.png" alt="menu" class="menu-icono">
             </label>
 
             <!--Menu de Navegación. Etiqueta para generar la barra de navegación permitiéndones trasladarnos a otras paginas-->
             <nav class="navbar">
                 <ul> <!--Etiqueta que permitir añadir un conjunto de listas no organizadas o numéricas-->
                     <li><a href="#">Inicio</a></li>
-                    <li><a href="templates/products.html">Productos</a></li>
-                    <li><a href="templates/about.html">Nosotros</a></li>
-                    <!--TODO:agregar ruta a pagina Contacto-->
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="./templates/products.html">Productos</a></li>
+                    <li><a href="./templates/about.html">Nosotros</a></li>
+                    <li><a href="./templates/contacto.html">Contacto</a></li>
                    </ul>
             </nav>
 
@@ -87,7 +88,7 @@ servidor web que aloja la página-->
                 <div class="header-txt">
                     <h1>Ofertas Especiales</h1>
                     <p>Todos los martes y jueves un 20% de descuento pagando en efectivo</p>
-                    <a href="#" class="btn-1">Ofertas Cyber Week</a>
+                    <a href="./templates/products.html" class="btn-1">Ofertas Cyber Week</a>
                 </div>
             </div>
     </header><!--Fin del header-->
@@ -102,7 +103,7 @@ servidor web que aloja la página-->
             </div>
             <div class="ofert-txt">
                 <h3>20% Descuento</h3>
-                <a href="#" class="btn-2">Informacion</a>
+                <a href="./templates/products.html" class="btn-2">Informacion</a>
             </div>
         </div>
         <!--Oferta 2-->
@@ -112,7 +113,7 @@ servidor web que aloja la página-->
             </div>
             <div class="ofert-txt">
                 <h3>35% Descuento</h3>
-                <a href="#" class="btn-2">Informacion</a>
+                <a href="./templates/products.html" class="btn-2">Informacion</a>
             </div>
         </div>
         <!--Oferta 3-->
@@ -122,7 +123,7 @@ servidor web que aloja la página-->
             </div>
             <div class="ofert-txt">
                 <h3>Hasta 12 cuotas sin interes</h3>
-                <a href="#" class="btn-2">Informacion</a>
+                <a href="./templates/products.html" class="btn-2">Informacion</a>
             </div>
         </div>
     </section><!--Fin Seccion Ofertas-->
@@ -172,8 +173,8 @@ servidor web que aloja la página-->
                 <ul>
                     <li><a href="./index.html">Inicio</a></li>
                     <li><a href="templates/products.html">Productos</a></li>
-                    <!--TODO:agregar ruta a pagina Contacto-->
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="./templates/about.html">Nosotros</a></li>
+                    <li><a href="./templates/contacto.html">Contacto</a></li>
                 </ul>
             </div>
 
@@ -182,10 +183,10 @@ servidor web que aloja la página-->
                 <ul>
                     <li>
                         <i class="fa-brands fa-instagram"></i>
-                        <a href="#">/TecnoFer</a></li>
+                        <a href="https://www.instagram.com/">/TecnoFer</a></li>
                     <li>
                         <i class="fa-brands fa-facebook"></i>
-                        <a href="#">/TecnoFer</a>
+                        <a href="https://www.facebook.com/">/TecnoFer</a>
                     </li>
                     
                     

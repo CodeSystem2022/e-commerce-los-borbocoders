@@ -8,13 +8,13 @@ const cart = [];
 
 // Función para inicializar el carrito
 async function onInitCart(path) {
+
   // Si hay datos en el carrito almacenados localmente, mostrarlos
   if (getCartFromLocalStorage() != null) {
     const cartData = getCartFromLocalStorage();
     displayCart(cartData);
   }
 }
-
 // Función para agregar un producto al carrito
 function addProduct(event) {
   event.preventDefault();

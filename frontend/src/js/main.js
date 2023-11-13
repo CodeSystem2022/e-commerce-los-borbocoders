@@ -1,3 +1,4 @@
+
 // Importa la función onInitProducts desde el módulo products.js
 import { onInitProducts } from "./products.js";
 // Importa la función onInitCart desde el módulo cart.js
