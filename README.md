@@ -19,7 +19,25 @@ La distribución se realiza a través de una página web con E-commerce y redes 
 
 ## **TECNOLOGÍAS EMPLEADAS Y FUNCIONALIDADES**
 
+Backend:
 
+Python se utiliza de manera integral en el backend del proyecto, desde la definición de modelos hasta la lógica principal del servidor. La modularidad del código permite una fácil expansión y mantenimiento, y el manejo de excepciones y registro de errores contribuye a la robustez y la confiabilidad del sistema. El código refleja un diseño orientado a objetos y sigue buenas prácticas para el desarrollo de servidores web en Python.
+
+
+Frontend:
+
+El frontend del proyecto utiliza una combinación de HTML, CSS y JavaScript para crear una interfaz de usuario atractiva y funcional. La estructura HTML organiza los elementos de la página, el CSS proporciona estilos y diseño, y el JavaScript agrega interactividad y dinamismo. La modularización del código en JavaScript facilita el mantenimiento y la escalabilidad del proyecto, mientras que las consultas de medios en CSS garantizan una experiencia de usuario consistente en diferentes dispositivos. El diseño responsivo y los estilos visualmente atractivos contribuyen a la usabilidad y la presentación general del sitio web.
+
+
+Base de Datos:
+
+MySQL se utiliza como el motor de base de datos para almacenar y gestionar la información crítica del proyecto. Esto abarca desde datos de usuarios hasta cualquier otra entidad que requiera persistencia.
+Se implementa un sistema de pool de conexiones que gestiona eficientemente el acceso a la base de datos, evitando la sobrecarga de abrir y cerrar conexiones repetidamente.
+MySQL es conocido por su rendimiento eficiente, lo que garantiza una rápida recuperación y manipulación de datos.
+
+Para garantizar la seguridad de los datos, las credenciales de acceso a la base de datos se manejan mediante variables de entorno, asegurando que la información sensible no esté expuesta en el código fuente.
+
+La elección de MySQL como sistema de gestión de bases de datos refleja la confiabilidad y eficiencia requeridas para el almacenamiento y recuperación de datos en el proyecto. El sistema de pool de conexiones implementado contribuye a una interacción eficiente y segura con la base de datos.
 
 -------------------------------------
 
