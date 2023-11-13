@@ -7,6 +7,12 @@ Ecommerce de una ferretería de tipo industrial cuyo propósito es expandir su c
 
 ## **INTRODUCCION**
 
+Estamos emocionados de presentar nuestro proyecto de E-commerce para TecnoFer, una ferretería industrial. El objetivo es ampliar la cartera de clientes y fidelizar a los existentes mediante la introducción de ventas online. Buscamos maximizar la visibilidad a corto, mediano y largo plazo, desarrollando una plataforma de E-commerce, canales virtuales de atención al cliente y seguimiento automatizado de ventas. 
+El público objetivo se amplía a nivel nacional, ofreciendo productos de construcción con precios competitivos y atención personalizada. Enfrentamos la competencia destacándonos por la integración de una experiencia de compra online y presencial única. 
+La distribución se realiza a través de una página web con E-commerce y redes sociales para una conexión efectiva con los clientes
+
+
+
 
 
 -------------------------------------
