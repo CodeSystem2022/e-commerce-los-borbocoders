@@ -127,6 +127,8 @@ th, td{
     font-size: 20px;
     text-transform: uppercase;
     margin-bottom: 20px;
+    color: #ffffff;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
 }
 
 .btn-1{
@@ -148,6 +150,8 @@ th, td{
     align-items: center;
     flex-basis: calc(33.3% - 15px);
     background-color: #f5f5f5;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
+    border-radius: 6px;
     padding: 5px;
 }
 
@@ -200,6 +204,9 @@ th, td{
     justify-content: space-between;
     padding: 25px;
     background-color: #f5f5f5;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
+    cursor: pointer;
+    border-radius: 6px;
 }
 
 .icon-txt h3{
@@ -217,7 +224,7 @@ th, td{
 
 /* FOOTER */
 .footer{
-    padding: 50px 0;
+    padding: 35px 0;
     background-color: #111111;
 }
 
@@ -291,6 +298,7 @@ th, td{
         flex-direction: column;
     }
 
+    /*De esta manera ocultamos la imagen central de la pagina de inicio*/
     .header-img{
         display: none;
     }
@@ -307,6 +315,7 @@ th, td{
     .ofert{
         padding: 30px 30px 0 30px;
         flex-direction: column;
+        /*Posiciona los productos uno debajo del otro*/
     }
 
     .ofert-1{
